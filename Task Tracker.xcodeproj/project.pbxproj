@@ -9,13 +9,22 @@
 /* Begin PBXBuildFile section */
 		73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB3257E5FC900605A66 /* AppDelegate.swift */; };
 		73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */; };
-		73E7CAB8257E5FC900605A66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB7257E5FC900605A66 /* ViewController.swift */; };
 		73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAB9257E5FC900605A66 /* Main.storyboard */; };
 		73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */; };
 		73E7CAC0257E5FCA00605A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CABF257E5FCA00605A66 /* Assets.xcassets */; };
 		73E7CAC3257E5FCA00605A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAC1257E5FCA00605A66 /* LaunchScreen.storyboard */; };
 		73E7CACE257E5FCB00605A66 /* Task_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CACD257E5FCB00605A66 /* Task_TrackerTests.swift */; };
 		73E7CAD9257E5FCB00605A66 /* Task_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAD8257E5FCB00605A66 /* Task_TrackerUITests.swift */; };
+		73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */; };
+		73E7CB0B257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB02257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf */; };
+		73E7CB0C257E9A0600605A66 /* SF-Compact-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB03257E9A0600605A66 /* SF-Compact-Rounded-Heavy.otf */; };
+		73E7CB0D257E9A0600605A66 /* SF-Compact-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB04257E9A0600605A66 /* SF-Compact-Rounded-Light.otf */; };
+		73E7CB0E257E9A0600605A66 /* SF-Compact-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB05257E9A0600605A66 /* SF-Compact-Rounded-Regular.otf */; };
+		73E7CB0F257E9A0600605A66 /* SF-Compact-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB06257E9A0600605A66 /* SF-Compact-Rounded-Ultralight.otf */; };
+		73E7CB10257E9A0600605A66 /* SF-Compact-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB07257E9A0600605A66 /* SF-Compact-Rounded-Semibold.otf */; };
+		73E7CB11257E9A0600605A66 /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB08257E9A0600605A66 /* SF-Compact-Rounded-Black.otf */; };
+		73E7CB12257E9A0600605A66 /* SF-Compact-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB09257E9A0600605A66 /* SF-Compact-Rounded-Bold.otf */; };
+		73E7CB13257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +48,6 @@
 		73E7CAB0257E5FC900605A66 /* Task Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAB3257E5FC900605A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73E7CAB7257E5FC900605A66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		73E7CABA257E5FC900605A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73E7CABD257E5FC900605A66 /* Task_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		73E7CABF257E5FCA00605A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +59,16 @@
 		73E7CAD4257E5FCB00605A66 /* Task TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAD8257E5FCB00605A66 /* Task_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_TrackerUITests.swift; sourceTree = "<group>"; };
 		73E7CADA257E5FCB00605A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListTableViewController.swift; sourceTree = "<group>"; };
+		73E7CB02257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		73E7CB03257E9A0600605A66 /* SF-Compact-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		73E7CB04257E9A0600605A66 /* SF-Compact-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Light.otf"; sourceTree = "<group>"; };
+		73E7CB05257E9A0600605A66 /* SF-Compact-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		73E7CB06257E9A0600605A66 /* SF-Compact-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		73E7CB07257E9A0600605A66 /* SF-Compact-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		73E7CB08257E9A0600605A66 /* SF-Compact-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Black.otf"; sourceTree = "<group>"; };
+		73E7CB09257E9A0600605A66 /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +119,11 @@
 		73E7CAB2257E5FC900605A66 /* Task Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				73E7CAB3257E5FC900605A66 /* AppDelegate.swift */,
-				73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */,
-				73E7CAB7257E5FC900605A66 /* ViewController.swift */,
-				73E7CAB9257E5FC900605A66 /* Main.storyboard */,
+				73E7CB01257E9A0600605A66 /* Fonts */,
+				73E7CAF4257E855D00605A66 /* Delegate */,
+				73E7CAF5257E873400605A66 /* Storyboards */,
 				73E7CABF257E5FCA00605A66 /* Assets.xcassets */,
-				73E7CAC1257E5FCA00605A66 /* LaunchScreen.storyboard */,
+				73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */,
 				73E7CAC4257E5FCA00605A66 /* Info.plist */,
 				73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */,
 			);
@@ -129,6 +146,41 @@
 				73E7CADA257E5FCB00605A66 /* Info.plist */,
 			);
 			path = "Task TrackerUITests";
+			sourceTree = "<group>";
+		};
+		73E7CAF4257E855D00605A66 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CAB3257E5FC900605A66 /* AppDelegate.swift */,
+				73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		73E7CAF5257E873400605A66 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CAB9257E5FC900605A66 /* Main.storyboard */,
+				73E7CAC1257E5FCA00605A66 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		73E7CB01257E9A0600605A66 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CB02257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf */,
+				73E7CB03257E9A0600605A66 /* SF-Compact-Rounded-Heavy.otf */,
+				73E7CB04257E9A0600605A66 /* SF-Compact-Rounded-Light.otf */,
+				73E7CB05257E9A0600605A66 /* SF-Compact-Rounded-Regular.otf */,
+				73E7CB06257E9A0600605A66 /* SF-Compact-Rounded-Ultralight.otf */,
+				73E7CB07257E9A0600605A66 /* SF-Compact-Rounded-Semibold.otf */,
+				73E7CB08257E9A0600605A66 /* SF-Compact-Rounded-Black.otf */,
+				73E7CB09257E9A0600605A66 /* SF-Compact-Rounded-Bold.otf */,
+				73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */,
+			);
+			name = Fonts;
+			path = "../../../Library/Mobile Documents/com~apple~CloudDocs/University/Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +286,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E7CB10257E9A0600605A66 /* SF-Compact-Rounded-Semibold.otf in Resources */,
+				73E7CB13257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf in Resources */,
+				73E7CB0F257E9A0600605A66 /* SF-Compact-Rounded-Ultralight.otf in Resources */,
 				73E7CAC3257E5FCA00605A66 /* LaunchScreen.storyboard in Resources */,
+				73E7CB0B257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf in Resources */,
 				73E7CAC0257E5FCA00605A66 /* Assets.xcassets in Resources */,
+				73E7CB0D257E9A0600605A66 /* SF-Compact-Rounded-Light.otf in Resources */,
+				73E7CB0C257E9A0600605A66 /* SF-Compact-Rounded-Heavy.otf in Resources */,
 				73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */,
+				73E7CB11257E9A0600605A66 /* SF-Compact-Rounded-Black.otf in Resources */,
+				73E7CB12257E9A0600605A66 /* SF-Compact-Rounded-Bold.otf in Resources */,
+				73E7CB0E257E9A0600605A66 /* SF-Compact-Rounded-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73E7CAB8257E5FC900605A66 /* ViewController.swift in Sources */,
 				73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */,
 				73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */,
+				73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */,
 				73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

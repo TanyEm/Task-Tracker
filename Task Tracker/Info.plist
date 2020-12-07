@@ -50,15 +50,25 @@
 		<string>armv7</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
+	<array/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-Compact-Rounded-Medium.otf</string>
+		<string>SF-Compact-Rounded-Heavy.otf</string>
+		<string>SF-Compact-Rounded-Light.otf</string>
+		<string>SF-Compact-Rounded-Regular.otf</string>
+		<string>SF-Compact-Rounded-Ultralight.otf</string>
+		<string>SF-Compact-Rounded-Semibold.otf</string>
+		<string>SF-Compact-Rounded-Black.otf</string>
+		<string>SF-Compact-Rounded-Bold.otf</string>
+		<string>SF-Compact-Rounded-Thin.otf</string>
 	</array>
 </dict>
 </plist>
