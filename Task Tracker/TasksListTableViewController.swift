@@ -9,26 +9,26 @@ import UIKit
 
 class TasksListTableViewController: UITableViewController {
     
-    var items: [ChecklistItem]
+    var items: [TaskListItem]
     
     required init?(coder aDecoder: NSCoder) {
         
-        items = [ChecklistItem]()
+        items = [TaskListItem]()
         
-        let row0item = ChecklistItem()
+        let row0item = TaskListItem()
       row0item.text = "Create an app"
       row0item.checked = false
         items.append(row0item)
-      let row1item = ChecklistItem()
+      let row1item = TaskListItem()
       row1item.text = "Add a table"
       row1item.checked = true
         items.append(row1item)
-      let row2item = ChecklistItem()
+      let row2item = TaskListItem()
       row2item.text = "Add a checkboks to each row"
       row2item.checked = true
         items.append(row2item)
         
-      let row3item = ChecklistItem()
+      let row3item = TaskListItem()
       row3item.text = "Add model for a task"
       row3item.checked = false
         items.append(row3item)
@@ -38,12 +38,6 @@ class TasksListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         let largeTitleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Bold",
                                    size: 35) ??
@@ -55,24 +49,18 @@ class TasksListTableViewController: UITableViewController {
         
         navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
+        navigationItem.largeTitleDisplayMode = .always
     }
     
-    @IBAction func addItem() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let newRowIndex = items.count
-          let item = ChecklistItem()
-          item.text = "Add the Add button"
-          item.checked = false
-          items.append(item)
-          let indexPath = IndexPath(row: newRowIndex, section: 0)
-          let indexPaths = [indexPath]
-          tableView.insertRows(at: indexPaths, with: .automatic)
-   }
-    
+        
+    }
+        
     // MARK: - Cell configuration
     
-    func configureCheckmark(for cell: UITableViewCell,
-                           with item: ChecklistItem) {
+    func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
       if item.checked {
         cell.accessoryType = .checkmark
     } else {
@@ -80,8 +68,7 @@ class TasksListTableViewController: UITableViewController {
       }
     }
     
-    func configureText(for cell: UITableViewCell,
-                      with item: ChecklistItem) {
+    func configureText(for cell: UITableViewCell, with item: TaskListItem) {
       let label = cell.viewWithTag(1000) as! UILabel
       label.text = item.text
     }
@@ -113,15 +100,6 @@ class TasksListTableViewController: UITableViewController {
           }
           tableView.deselectRow(at: indexPath, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -129,30 +107,30 @@ class TasksListTableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddTask" {
+            let controller = segue.destination as! NewTaskTableViewController
+            controller.delegate = self
+        }
     }
-    */
 
+}
+
+extension TasksListTableViewController: NewTaskTableViewControllerDelegate {
+    
+    func newTaskViewControllerDidCancel(_ controller: NewTaskTableViewController) {
+        navigationController?.popViewController(animated:true)
+    }
+    
+    func newTaskViewController(_ controller: NewTaskTableViewController, didFinishAdding item: TaskListItem) {
+        let newRowIndex = items.count
+        items.append(item)
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        navigationController?.popViewController(animated:true)
+    }
 }

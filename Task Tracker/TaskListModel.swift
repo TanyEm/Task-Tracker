@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChecklistItem {
+class TaskListItem {
     var text = ""
     var checked = false
     
