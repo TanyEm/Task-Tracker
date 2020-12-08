@@ -16,27 +16,22 @@ class TasksListTableViewController: UITableViewController {
         items = [ChecklistItem]()
         
         let row0item = ChecklistItem()
-      row0item.text = "Walk the dog"
+      row0item.text = "Create an app"
       row0item.checked = false
         items.append(row0item)
       let row1item = ChecklistItem()
-      row1item.text = "Brush my teeth"
+      row1item.text = "Add a table"
       row1item.checked = true
         items.append(row1item)
       let row2item = ChecklistItem()
-      row2item.text = "Learn iOS development"
+      row2item.text = "Add a checkboks to each row"
       row2item.checked = true
         items.append(row2item)
         
       let row3item = ChecklistItem()
-      row3item.text = "Soccer practice"
+      row3item.text = "Add model for a task"
       row3item.checked = false
         items.append(row3item)
-        
-      let row4item = ChecklistItem()
-      row4item.text = "Eat ice cream"
-      row4item.checked = true
-        items.append(row4item)
         
       super.init(coder: aDecoder)
     }
@@ -57,16 +52,22 @@ class TasksListTableViewController: UITableViewController {
                             UIFont(name: "SF Compact Rounded Semibold",
                                    size: 20) ??
                             UIFont.boldSystemFont(ofSize: 20)]
-        let editButtonFont = [NSAttributedString.Key.font:
-                                UIFont(name: "SF Compact Rounded Regular",
-                                       size: 19) ??
-                                UIFont.boldSystemFont(ofSize: 19)]
         
         navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
-        editButtonItem.setTitleTextAttributes(editButtonFont, for: .normal)
-        navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func addItem() {
+        
+        let newRowIndex = items.count
+          let item = ChecklistItem()
+          item.text = "Add the Add button"
+          item.checked = false
+          items.append(item)
+          let indexPath = IndexPath(row: newRowIndex, section: 0)
+          let indexPaths = [indexPath]
+          tableView.insertRows(at: indexPaths, with: .automatic)
+   }
     
     // MARK: - Cell configuration
     
@@ -121,17 +122,13 @@ class TasksListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        items.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
