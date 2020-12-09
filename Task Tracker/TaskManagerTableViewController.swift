@@ -7,20 +7,28 @@
 
 import UIKit
 
-protocol NewTaskTableViewControllerDelegate: class {
-    func newTaskViewControllerDidCancel(_ controller: NewTaskTableViewController)
-    func newTaskViewController(_ controller: NewTaskTableViewController, didFinishAdding item: TaskListItem)
+protocol TaskManagerViewControllerDelegate: class {
+    func taskManagerViewControllerDidCancel(_ controller: TaskManagerTableViewController)
+    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem)
+    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem)
 }
 
-class NewTaskTableViewController: UITableViewController {
+class TaskManagerTableViewController: UITableViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
-    weak var delegate: NewTaskTableViewControllerDelegate?
+    var itemToEdit: TaskListItem?
+    weak var delegate: TaskManagerViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let item = itemToEdit {
+            title = "Edit your task 😉"
+            textField.text = item.text
+            doneBarButton.isEnabled = true
+        }
         
         let largeTitleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Bold",
@@ -51,10 +59,17 @@ class NewTaskTableViewController: UITableViewController {
     }
     
     @IBAction func done() {
-        let item = TaskListItem()
-        item.text = textField.text!
-        item.checked = false
-        delegate?.newTaskViewController(self, didFinishAdding: item)
+        
+        if let itemToEdit = itemToEdit {
+            itemToEdit.text = textField.text!
+            delegate?.taskManagerViewController(self,
+                          didFinishEditing: itemToEdit)
+          } else {
+            let item = TaskListItem()
+            item.text = textField.text!
+            item.checked = false
+            delegate?.taskManagerViewController(self, didFinishAdding: item)
+        }
     }
 
     
@@ -70,7 +85,8 @@ class NewTaskTableViewController: UITableViewController {
 
 }
 
-extension NewTaskTableViewController: UITextFieldDelegate {
+extension TaskManagerTableViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text!
         let stringRange = Range(range, in:oldText)!

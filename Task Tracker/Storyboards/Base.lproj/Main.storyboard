@@ -7,6 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Regular.otf">
+            <string>SFCompactRounded-Regular</string>
+        </array>
         <array key="SF-Compact-Rounded-Semibold.otf">
             <string>SFCompactRounded-Semibold</string>
         </array>
@@ -21,22 +24,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ListItem" id="f61-ta-8hC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ListItem" id="f61-ta-8hC">
                                 <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f61-ta-8hC" id="zA2-lH-NFg">
-                                    <rect key="frame" x="0.0" y="0.0" width="330" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="311" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-mc-AgQ">
-                                            <rect key="frame" x="20" y="11" width="350" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-mc-AgQ">
+                                            <rect key="frame" x="28" y="11" width="267" height="20.5"/>
                                             <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDd-Rm-Wiv">
+                                            <rect key="frame" x="4" y="11" width="26" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="j0h-FV-irM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zDd-Rm-Wiv" firstAttribute="leading" secondItem="zA2-lH-NFg" secondAttribute="leadingMargin" constant="-16" id="5NB-E7-Ifs"/>
+                                        <constraint firstItem="zDd-Rm-Wiv" firstAttribute="top" secondItem="zA2-lH-NFg" secondAttribute="topMargin" id="P7T-eS-ggn"/>
+                                        <constraint firstItem="zDd-Rm-Wiv" firstAttribute="firstBaseline" secondItem="EZY-mc-AgQ" secondAttribute="baseline" id="ULR-i2-dSR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EZY-mc-AgQ" secondAttribute="trailing" constant="8" id="bz3-5o-ggY"/>
+                                        <constraint firstItem="EZY-mc-AgQ" firstAttribute="leading" secondItem="zA2-lH-NFg" secondAttribute="leadingMargin" constant="8" id="ebb-lT-0eY"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zDd-Rm-Wiv" secondAttribute="trailing" constant="20" symbolic="YES" id="wnx-Qt-rv1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="EeU-lS-OCq" kind="show" identifier="EditTask" trigger="accessoryAction" id="U8r-OG-46w"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -60,7 +82,7 @@
         <!--Add your task 😉-->
         <scene sceneID="MTE-7M-HGg">
             <objects>
-                <tableViewController id="EeU-lS-OCq" customClass="NewTaskTableViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="EeU-lS-OCq" customClass="TaskManagerTableViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dJy-8p-k6n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,6 +152,9 @@
             <point key="canvasLocation" x="271.01449275362319" y="-15.401785714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="U8r-OG-46w"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

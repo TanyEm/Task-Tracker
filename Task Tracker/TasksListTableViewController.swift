@@ -61,11 +61,12 @@ class TasksListTableViewController: UITableViewController {
     // MARK: - Cell configuration
     
     func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
-      if item.checked {
-        cell.accessoryType = .checkmark
-    } else {
-        cell.accessoryType = .none
-      }
+        let label = cell.viewWithTag(1001) as! UILabel
+        if item.checked {
+            label.text = "✔"
+        } else {
+            label.text = ""
+        }
     }
     
     func configureText(for cell: UITableViewCell, with item: TaskListItem) {
@@ -112,20 +113,26 @@ class TasksListTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddTask" {
-            let controller = segue.destination as! NewTaskTableViewController
+            let controller = segue.destination as! TaskManagerTableViewController
             controller.delegate = self
+        } else if segue.identifier == "EditTask" {
+            let controller = segue.destination as! TaskManagerTableViewController
+            controller.delegate = self
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                  controller.itemToEdit = items[indexPath.row]
+                }
         }
     }
 
 }
 
-extension TasksListTableViewController: NewTaskTableViewControllerDelegate {
+extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
-    func newTaskViewControllerDidCancel(_ controller: NewTaskTableViewController) {
+    func taskManagerViewControllerDidCancel(_ controller: TaskManagerTableViewController) {
         navigationController?.popViewController(animated:true)
     }
     
-    func newTaskViewController(_ controller: NewTaskTableViewController, didFinishAdding item: TaskListItem) {
+    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
         let newRowIndex = items.count
         items.append(item)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
@@ -133,4 +140,14 @@ extension TasksListTableViewController: NewTaskTableViewControllerDelegate {
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated:true)
     }
+    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem) {
+        if let index = items.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+              configureText(for: cell, with: item)
+            }
+        }
+          navigationController?.popViewController(animated:true)
+    }
+
 }
