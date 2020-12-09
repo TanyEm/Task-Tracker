@@ -11,9 +11,12 @@ class TasksListTableViewController: UITableViewController {
     
     var items = [TaskListItem]()
     var storage = DataManager()
+    var guestAccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(guestAccess)
         let largeTitleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Bold",
                                    size: 35) ??
@@ -92,16 +95,13 @@ class TasksListTableViewController: UITableViewController {
     
     // MARK: - Persistent storage
     
-    
-    
     func saveTasks() {
       let encoder = PropertyListEncoder()
       do {
         let data = try encoder.encode(items)
         try data.write(to: storage.dataFilePath(), options: Data.WritingOptions.atomic)
-        print("Error encoding item array!")
       } catch {
-        print("Error encoding item array!")
+        print(error.localizedDescription)
       }
     }
     
@@ -112,7 +112,7 @@ class TasksListTableViewController: UITableViewController {
             do {
                 items = try decoder.decode([TaskListItem].self,from: data)
             } catch {
-                print("Error decoding item array!")
+                print(error.localizedDescription)
             }
         }
     }

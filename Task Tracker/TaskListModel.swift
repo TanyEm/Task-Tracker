@@ -10,6 +10,7 @@ import Foundation
 class TaskListItem: NSObject, Codable {
     var text = ""
     var checked = false
+    var isPrivate = false
     
     func toggleChecked() {
       checked = !checked

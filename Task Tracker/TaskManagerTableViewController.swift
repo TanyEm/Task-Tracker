@@ -16,6 +16,7 @@ class TaskManagerTableViewController: UITableViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var privacySwitch: UISwitch!
     
     var itemToEdit: TaskListItem?
     weak var delegate: TaskManagerViewControllerDelegate?
@@ -27,6 +28,7 @@ class TaskManagerTableViewController: UITableViewController {
             title = "Edit your task 😉"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            privacySwitch.isOn = item.isPrivate
         }
         
         let largeTitleFont = [NSAttributedString.Key.font:
@@ -53,12 +55,13 @@ class TaskManagerTableViewController: UITableViewController {
         
         if let itemToEdit = itemToEdit {
             itemToEdit.text = textField.text!
-            delegate?.taskManagerViewController(self,
-                          didFinishEditing: itemToEdit)
+            itemToEdit.isPrivate = privacySwitch.isOn
+            delegate?.taskManagerViewController(self, didFinishEditing: itemToEdit)
           } else {
             let item = TaskListItem()
             item.text = textField.text!
             item.checked = false
+            item.isPrivate = privacySwitch.isOn
             delegate?.taskManagerViewController(self, didFinishAdding: item)
         }
     }
