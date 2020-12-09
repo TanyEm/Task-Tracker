@@ -9,33 +9,9 @@ import UIKit
 
 class TasksListTableViewController: UITableViewController {
     
-    var items: [TaskListItem]
+    var items = [TaskListItem]()
+    var storage = DataManager()
     
-    required init?(coder aDecoder: NSCoder) {
-        
-        items = [TaskListItem]()
-        
-        let row0item = TaskListItem()
-      row0item.text = "Create an app"
-      row0item.checked = false
-        items.append(row0item)
-      let row1item = TaskListItem()
-      row1item.text = "Add a table"
-      row1item.checked = true
-        items.append(row1item)
-      let row2item = TaskListItem()
-      row2item.text = "Add a checkboks to each row"
-      row2item.checked = true
-        items.append(row2item)
-        
-      let row3item = TaskListItem()
-      row3item.text = "Add model for a task"
-      row3item.checked = false
-        items.append(row3item)
-        
-      super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let largeTitleFont = [NSAttributedString.Key.font:
@@ -49,7 +25,11 @@ class TasksListTableViewController: UITableViewController {
         
         navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
-        navigationItem.largeTitleDisplayMode = .always
+        
+        print("Documents folder is \(storage.documentsDirectory())")
+        print("Data file path is \(storage.dataFilePath())")
+        
+        loadChecklistItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,19 +74,49 @@ class TasksListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let cell = tableView.cellForRow(at: indexPath) {
-            
             let item = items[indexPath.row]
-                item.toggleChecked()
-                configureCheckmark(for: cell, with: item)
-          }
-          tableView.deselectRow(at: indexPath, animated: true)
+            item.toggleChecked()
+            configureCheckmark(for: cell, with: item)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        saveTasks()
     }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
+        saveTasks()
     }
+    
+    // MARK: - Persistent storage
+    
+    
+    
+    func saveTasks() {
+      let encoder = PropertyListEncoder()
+      do {
+        let data = try encoder.encode(items)
+        try data.write(to: storage.dataFilePath(), options: Data.WritingOptions.atomic)
+        print("Error encoding item array!")
+      } catch {
+        print("Error encoding item array!")
+      }
+    }
+    
+    func loadChecklistItems() {
+        let path = storage.dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                items = try decoder.decode([TaskListItem].self,from: data)
+            } catch {
+                print("Error decoding item array!")
+            }
+        }
+    }
+    
     
     // MARK: - Navigation
 
@@ -128,10 +138,6 @@ class TasksListTableViewController: UITableViewController {
 
 extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
-    func taskManagerViewControllerDidCancel(_ controller: TaskManagerTableViewController) {
-        navigationController?.popViewController(animated:true)
-    }
-    
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
         let newRowIndex = items.count
         items.append(item)
@@ -139,6 +145,7 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated:true)
+        saveTasks()
     }
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem) {
         if let index = items.firstIndex(of: item) {
@@ -147,7 +154,8 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
               configureText(for: cell, with: item)
             }
         }
-          navigationController?.popViewController(animated:true)
+        navigationController?.popViewController(animated:true)
+        saveTasks()
     }
 
 }

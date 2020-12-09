@@ -27,6 +27,7 @@
 		73E7CB13257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */; };
 		73E7CB20257FD95600605A66 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB1F257FD95600605A66 /* TaskListModel.swift */; };
 		73E7CB28257FF4D900605A66 /* TaskManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */; };
+		73E7CB3C2581231900605A66 /* TaskStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB3B2581231900605A66 /* TaskStorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
 		73E7CB1F257FD95600605A66 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
 		73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTableViewController.swift; sourceTree = "<group>"; };
+		73E7CB3B2581231900605A66 /* TaskStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				73E7CAC4257E5FCA00605A66 /* Info.plist */,
 				73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */,
 				73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */,
+				73E7CB3B2581231900605A66 /* TaskStorageManager.swift */,
 			);
 			path = "Task Tracker";
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */,
 				73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */,
 				73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */,
+				73E7CB3C2581231900605A66 /* TaskStorageManager.swift in Sources */,
 				73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
