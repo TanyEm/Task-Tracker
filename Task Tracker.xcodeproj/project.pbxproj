@@ -106,6 +106,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		732CC8412582A910001764FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CABF257E5FCA00605A66 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		732CC8422582AA0C001764FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				732CC8452582AA74001764FB /* Settings */,
+				732CC8442582AA65001764FB /* Welcome */,
+				732CC8432582AA58001764FB /* Tasks */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		732CC8432582AA58001764FB /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */,
+				73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		732CC8442582AA65001764FB /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				733D40AF25817F5000BC8FF3 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		732CC8452582AA74001764FB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				732CC83C2582A13D001764FB /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		732CC8462582AAC4001764FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CB1F257FD95600605A66 /* TaskListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		732CC8472582AAE5001764FB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				73E7CB3B2581231900605A66 /* DataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		73E7CAA7257E5FC900605A66 = {
 			isa = PBXGroup;
 			children = (
@@ -129,18 +188,15 @@
 		73E7CAB2257E5FC900605A66 /* Task Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				732CC8412582A910001764FB /* Resources */,
 				73E7CB01257E9A0600605A66 /* Fonts */,
 				73E7CAF4257E855D00605A66 /* Delegate */,
 				73E7CAF5257E873400605A66 /* Storyboards */,
-				73E7CABF257E5FCA00605A66 /* Assets.xcassets */,
-				73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */,
-				73E7CB1F257FD95600605A66 /* TaskListModel.swift */,
-				73E7CAC4257E5FCA00605A66 /* Info.plist */,
+				732CC8422582AA0C001764FB /* Controllers */,
+				732CC8462582AAC4001764FB /* Models */,
+				732CC8472582AAE5001764FB /* Services */,
 				73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */,
-				73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */,
-				73E7CB3B2581231900605A66 /* DataManager.swift */,
-				733D40AF25817F5000BC8FF3 /* WelcomeViewController.swift */,
-				732CC83C2582A13D001764FB /* SettingsViewController.swift */,
+				73E7CAC4257E5FCA00605A66 /* Info.plist */,
 			);
 			path = "Task Tracker";
 			sourceTree = "<group>";
