@@ -20,7 +20,7 @@ class TaskManagerTableViewController: UITableViewController {
     
     var itemToEdit: TaskListItem?
     weak var delegate: TaskManagerViewControllerDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +32,9 @@ class TaskManagerTableViewController: UITableViewController {
         }
         
         let largeTitleFont = [NSAttributedString.Key.font:
-                            UIFont(name: "SF Compact Rounded Bold",
-                                   size: 35) ??
-                            UIFont.boldSystemFont(ofSize: 35)]
+                                UIFont(name: "SF Compact Rounded Bold",
+                                       size: 35) ??
+                                UIFont.boldSystemFont(ofSize: 35)]
         let titleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Semibold",
                                    size: 20) ??
@@ -57,7 +57,7 @@ class TaskManagerTableViewController: UITableViewController {
             itemToEdit.text = textField.text!
             itemToEdit.isPrivate = privacySwitch.isOn
             delegate?.taskManagerViewController(self, didFinishEditing: itemToEdit)
-          } else {
+        } else {
             let item = TaskListItem()
             item.text = textField.text!
             item.checked = false
@@ -65,18 +65,6 @@ class TaskManagerTableViewController: UITableViewController {
             delegate?.taskManagerViewController(self, didFinishAdding: item)
         }
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension TaskManagerTableViewController: UITextFieldDelegate {
@@ -85,13 +73,13 @@ extension TaskManagerTableViewController: UITextFieldDelegate {
         let oldText = textField.text!
         let stringRange = Range(range, in:oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)
-
+        
         if newText.isEmpty {
             doneBarButton.isEnabled = false
         } else {
             doneBarButton.isEnabled = true
         }
-
+        
         return true
     }
 }

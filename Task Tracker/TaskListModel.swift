@@ -11,8 +11,13 @@ class TaskListItem: NSObject, Codable {
     var text = ""
     var checked = false
     var isPrivate = false
+    var taskID: UUID?
+    
+    override init() {
+        taskID = UUID()
+    }
     
     func toggleChecked() {
-      checked = !checked
+        checked = !checked
     }
 }

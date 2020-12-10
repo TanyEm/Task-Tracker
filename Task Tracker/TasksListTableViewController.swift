@@ -16,11 +16,10 @@ class TasksListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(guestAccess)
         let largeTitleFont = [NSAttributedString.Key.font:
-                            UIFont(name: "SF Compact Rounded Bold",
-                                   size: 35) ??
-                            UIFont.boldSystemFont(ofSize: 35)]
+                                UIFont(name: "SF Compact Rounded Bold",
+                                       size: 35) ??
+                                UIFont.boldSystemFont(ofSize: 35)]
         let titleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Semibold",
                                    size: 20) ??
@@ -35,12 +34,6 @@ class TasksListTableViewController: UITableViewController {
         loadChecklistItems()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-        
     // MARK: - Cell configuration
     
     func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
@@ -53,25 +46,25 @@ class TasksListTableViewController: UITableViewController {
     }
     
     func configureText(for cell: UITableViewCell, with item: TaskListItem) {
-      let label = cell.viewWithTag(1000) as! UILabel
-      label.text = item.text
+        let label = cell.viewWithTag(1000) as! UILabel
+            label.text = item.text
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return items.count
     }
-
-
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListItem", for: indexPath)
-                
-          let item = items[indexPath.row]
-          configureText(for: cell, with: item)
-          configureCheckmark(for: cell, with: item)
-          return cell
+        let item = items[indexPath.row]
+    
+        configureText(for: cell, with: item)
+        configureCheckmark(for: cell, with: item)
+            
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -86,7 +79,6 @@ class TasksListTableViewController: UITableViewController {
         saveTasks()
     }
     
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
@@ -96,13 +88,13 @@ class TasksListTableViewController: UITableViewController {
     // MARK: - Persistent storage
     
     func saveTasks() {
-      let encoder = PropertyListEncoder()
-      do {
-        let data = try encoder.encode(items)
-        try data.write(to: storage.dataFilePath(), options: Data.WritingOptions.atomic)
-      } catch {
-        print(error.localizedDescription)
-      }
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(items)
+            try data.write(to: storage.dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func loadChecklistItems() {
@@ -111,6 +103,7 @@ class TasksListTableViewController: UITableViewController {
             let decoder = PropertyListDecoder()
             do {
                 items = try decoder.decode([TaskListItem].self,from: data)
+//                items = items.filter { !(guestAccess && $0.isPrivate)  }
             } catch {
                 print(error.localizedDescription)
             }
@@ -119,8 +112,7 @@ class TasksListTableViewController: UITableViewController {
     
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddTask" {
             let controller = segue.destination as! TaskManagerTableViewController
@@ -129,11 +121,11 @@ class TasksListTableViewController: UITableViewController {
             let controller = segue.destination as! TaskManagerTableViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                  controller.itemToEdit = items[indexPath.row]
-                }
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
-
+    
 }
 
 extension TasksListTableViewController: TaskManagerViewControllerDelegate {
@@ -151,11 +143,11 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
         if let index = items.firstIndex(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) {
-              configureText(for: cell, with: item)
+                configureText(for: cell, with: item)
             }
         }
         navigationController?.popViewController(animated:true)
         saveTasks()
     }
-
+    
 }

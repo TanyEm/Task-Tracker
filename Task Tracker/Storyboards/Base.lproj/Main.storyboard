@@ -22,10 +22,50 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Settings-->
+        <scene sceneID="96c-e4-rEh">
+            <objects>
+                <viewController id="Ffj-ep-pmO" customClass="SettingsViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54Z-4p-ap5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-hK-DZw">
+                                <rect key="frame" x="107" y="425.5" width="200" height="45"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GPj-T4-Mza"/>
+                                    <constraint firstAttribute="height" constant="45" id="T3G-OS-w6O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="22"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="b5r-hB-mu7" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zhN-qi-J0s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="55O-4z-ber"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mJG-hK-DZw" firstAttribute="centerX" secondItem="54Z-4p-ap5" secondAttribute="centerX" id="F1p-fN-QrX"/>
+                            <constraint firstItem="mJG-hK-DZw" firstAttribute="centerY" secondItem="54Z-4p-ap5" secondAttribute="centerY" id="fZ9-O2-8ak"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="9r8-SK-eVQ"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="mJG-hK-DZw" id="ckO-16-es2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8K-07-jLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2107.2463768115945" y="682.36607142857144"/>
+        </scene>
         <!--Tasks-->
         <scene sceneID="bh1-LB-ukW">
             <objects>
-                <tableViewController id="A9O-1Z-liO" customClass="TasksListTableViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TasksContoller" id="A9O-1Z-liO" customClass="TasksListTableViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yzG-As-uGa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,6 +114,7 @@
                             <outlet property="delegate" destination="A9O-1Z-liO" id="WJs-bj-dR1"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="HFg-Ga-djJ"/>
                     <navigationItem key="navigationItem" title="Tasks" largeTitleDisplayMode="always" id="OX3-Ka-36t">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="v2f-3u-kjn">
                             <connections>
@@ -84,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eh-lE-D3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181.1594202898552" y="-15.401785714285714"/>
+            <point key="canvasLocation" x="2107" y="-15"/>
         </scene>
         <!--Add your task 😉-->
         <scene sceneID="MTE-7M-HGg">
@@ -176,7 +217,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtK-6J-U0Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2010.144927536232" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="2855" y="-15"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="DqB-1l-jGj">
@@ -208,7 +249,7 @@ Are you the owner?</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7ej-PB-UOb" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Y35-ig-8LZ"/>
+                                            <segue destination="eKT-bp-Kpy" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ISM-89-gHX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-zG-CgQ">
@@ -251,21 +292,22 @@ Are you the owner?</string>
                     <connections>
                         <outlet property="guestButton" destination="uoU-zG-CgQ" id="siq-v1-sBN"/>
                         <outlet property="ownerButton" destination="IYG-wM-ER2" id="A80-ut-2vL"/>
-                        <segue destination="7ej-PB-UOb" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="VvM-7m-WFS"/>
+                        <segue destination="eKT-bp-Kpy" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="rC0-WB-e19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS8-Vq-ivJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-581.15942028985512" y="-15.401785714285714"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tasks-->
         <scene sceneID="U8h-lB-Miu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7ej-PB-UOb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TaskNavContoller" automaticallyAdjustsScrollViewInsets="NO" id="7ej-PB-UOb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tasks" id="IUm-9I-JTx"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -275,11 +317,49 @@ Are you the owner?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgU-CM-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271.01449275362319" y="-15.401785714285714"/>
+            <point key="canvasLocation" x="1317" y="-15"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="y7U-cL-fY0">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="eKT-bp-Kpy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LF1-Kb-aae"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b8d-en-jbp">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7ej-PB-UOb" kind="relationship" relationship="viewControllers" id="xUy-ue-fpk"/>
+                        <segue destination="hI5-Ia-RQA" kind="relationship" relationship="viewControllers" id="7cz-aZ-Wzi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hmu-zD-TbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333" y="319"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="t4q-Y1-0le">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hI5-Ia-RQA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="tH9-0u-t1m"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7Rj-Br-TQ8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ffj-ep-pmO" kind="relationship" relationship="rootViewController" id="gCZ-QR-riR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="le3-Yi-pRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1316" y="682"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VvM-7m-WFS"/>
+        <segue reference="rC0-WB-e19"/>
         <segue reference="U8r-OG-46w"/>
     </inferredMetricsTieBreakers>
     <resources>

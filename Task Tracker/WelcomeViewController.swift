@@ -11,11 +11,10 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var ownerButton: UIButton!
     @IBOutlet weak var guestButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,18 +25,20 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func moveAsGuest() {
-        performSegue(withIdentifier: "GuestAccess", sender: self)
+        
+       performSegue(withIdentifier: "GuestAccess", sender: self)
     }
     
-
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddTask" {
-            let controller = segue.destination as! TasksListTableViewController
-            controller.guestAccess = true
+        if segue.identifier == "GuestAccess" {
+            if let tab = self.presentingViewController as? UITabBarController,
+               let nav = tab.viewControllers?[0] as? UINavigationController,
+               let controller = nav.viewControllers.first as? TasksListTableViewController {
+                controller.guestAccess = true
+            }
         }
     }
-
 }
