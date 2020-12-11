@@ -107,11 +107,13 @@ class TasksListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddTask" {
             let controller = segue.destination as! TaskManagerTableViewController
+            controller.switchAccses = !guestAccess
             controller.delegate = self
         } else if segue.identifier == "EditTask" {
             let controller = segue.destination as! TaskManagerTableViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                controller.switchAccses = !guestAccess
                 controller.itemToEdit = itemsToShow[indexPath.row]
             }
         }

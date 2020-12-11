@@ -8,6 +8,7 @@
 import UIKit
 
 protocol TaskManagerViewControllerDelegate: class {
+    // Should saves new task or updates data of task
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem)
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem)
 }
@@ -19,10 +20,16 @@ class TaskManagerTableViewController: UITableViewController {
     @IBOutlet weak var privacySwitch: UISwitch!
     
     var itemToEdit: TaskListItem?
+    var switchAccses = true
     weak var delegate: TaskManagerViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // When a guest comes a switcher must be forbidden
+        if !switchAccses {
+            privacySwitch.isEnabled = false
+        }
         
         if let item = itemToEdit {
             title = "Edit your task 😉"
@@ -53,6 +60,7 @@ class TaskManagerTableViewController: UITableViewController {
     
     @IBAction func done() {
         
+        // Send task new or edited data thru delegate
         if let itemToEdit = itemToEdit {
             itemToEdit.text = textField.text!
             itemToEdit.isPrivate = privacySwitch.isOn
@@ -70,6 +78,8 @@ class TaskManagerTableViewController: UITableViewController {
 extension TaskManagerTableViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        // forbids creating an empty task by disabling the Done button
         let oldText = textField.text!
         let stringRange = Range(range, in:oldText)!
         let newText = oldText.replacingCharacters(in: stringRange, with: string)

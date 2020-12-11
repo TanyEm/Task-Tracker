@@ -29,7 +29,6 @@ class WelcomeViewController: UIViewController {
         performSegue(withIdentifier: "GuestAccess", sender: self)
     }
     
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
