@@ -307,7 +307,7 @@ Are you the owner?</string>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -345,7 +345,7 @@ Are you the owner?</string>
                     <tabBarItem key="tabBarItem" title="Settings" id="tH9-0u-t1m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7Rj-Br-TQ8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -359,7 +359,7 @@ Are you the owner?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rC0-WB-e19"/>
+        <segue reference="ISM-89-gHX"/>
         <segue reference="U8r-OG-46w"/>
     </inferredMetricsTieBreakers>
     <resources>
