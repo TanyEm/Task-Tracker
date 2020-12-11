@@ -114,7 +114,7 @@ class TasksListTableViewController: UITableViewController {
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 controller.switchAccses = !guestAccess
-                controller.itemToEdit = itemsToShow[indexPath.row]
+                controller.taskToEdit = itemsToShow[indexPath.row]
             }
         }
     }

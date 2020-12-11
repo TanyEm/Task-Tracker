@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		732CC83D2582A13D001764FB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CC83C2582A13D001764FB /* SettingsViewController.swift */; };
+		732CC865258426A6001764FB /* GesturesHendler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732CC864258426A6001764FB /* GesturesHendler.swift */; };
 		733D40B025817F5000BC8FF3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D40AF25817F5000BC8FF3 /* WelcomeViewController.swift */; };
 		73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB3257E5FC900605A66 /* AppDelegate.swift */; };
 		73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		732CC83C2582A13D001764FB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		732CC864258426A6001764FB /* GesturesHendler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesHendler.swift; sourceTree = "<group>"; };
 		733D40AF25817F5000BC8FF3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		73E7CAB0257E5FC900605A66 /* Task Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAB3257E5FC900605A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7CB3B2581231900605A66 /* DataManager.swift */,
+				732CC864258426A6001764FB /* GesturesHendler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */,
 				73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */,
 				73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */,
+				732CC865258426A6001764FB /* GesturesHendler.swift in Sources */,
 				73E7CB3C2581231900605A66 /* DataManager.swift in Sources */,
 				73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */,
 				732CC83D2582A13D001764FB /* SettingsViewController.swift in Sources */,

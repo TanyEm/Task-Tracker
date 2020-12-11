@@ -18,10 +18,16 @@ class TaskManagerTableViewController: UITableViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var privacySwitch: UISwitch!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var dueDateField: UITextField!
     
-    var itemToEdit: TaskListItem?
+    var taskToEdit: TaskListItem?
     var switchAccses = true
     weak var delegate: TaskManagerViewControllerDelegate?
+    var datePickerVisible = false
+    var dueDate = Date()
+    let picker = UIDatePicker()
+    var gestureHendler: GesturesHendler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +35,16 @@ class TaskManagerTableViewController: UITableViewController {
         // When a guest comes a switcher must be forbidden
         if !switchAccses {
             privacySwitch.isEnabled = false
+            privacySwitch.isOn = false
         }
         
-        if let item = itemToEdit {
+        if let task = taskToEdit {
             title = "Edit your task 😉"
-            textField.text = item.text
+            textField.text = task.text
             doneBarButton.isEnabled = true
-            privacySwitch.isOn = item.isPrivate
+            privacySwitch.isOn = task.isPrivate
+            shouldRemindSwitch.isOn = task.shouldRemind
+            dueDateField.text = dateFormatter(strDate: task.dueDate)
         }
         
         let largeTitleFont = [NSAttributedString.Key.font:
@@ -49,6 +58,10 @@ class TaskManagerTableViewController: UITableViewController {
         
         navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
+        
+        createPicker()
+        gestureHendler = GesturesHendler(view: self.view)
+        gestureHendler?.gestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,17 +74,49 @@ class TaskManagerTableViewController: UITableViewController {
     @IBAction func done() {
         
         // Send task new or edited data thru delegate
-        if let itemToEdit = itemToEdit {
-            itemToEdit.text = textField.text!
-            itemToEdit.isPrivate = privacySwitch.isOn
-            delegate?.taskManagerViewController(self, didFinishEditing: itemToEdit)
+        if let task = taskToEdit {
+            task.text = textField.text!
+            task.isPrivate = privacySwitch.isOn
+            task.shouldRemind = shouldRemindSwitch.isOn
+            task.dueDate = dueDate
+            delegate?.taskManagerViewController(self, didFinishEditing: task)
         } else {
-            let item = TaskListItem()
-            item.text = textField.text!
-            item.checked = false
-            item.isPrivate = privacySwitch.isOn
-            delegate?.taskManagerViewController(self, didFinishAdding: item)
+            let task = TaskListItem()
+            task.text = textField.text!
+            task.checked = false
+            task.isPrivate = privacySwitch.isOn
+            task.shouldRemind = shouldRemindSwitch.isOn
+            task.dueDate = dueDate
+            delegate?.taskManagerViewController(self, didFinishAdding: task)
         }
+    }
+    
+    // MARK: - DatePicker and Formatter
+    
+    func createPicker() {
+        dueDateField.inputView = picker
+        picker.datePickerMode = .dateAndTime
+        picker.preferredDatePickerStyle = .wheels
+        
+        picker.addTarget(self, action: #selector(datePickerChanged(date:)), for: .valueChanged)
+    }
+    
+    @objc func datePickerChanged(date: UIDatePicker) {
+        if date.isEqual(self.picker) {
+            dueDateField.text = dateFormatter(strDate: date.date)
+            dueDate = date.date
+        } else {
+            print(Error.self)
+        }
+    }
+    
+    func dateFormatter(strDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        let formattedString = dateFormatter.string(from: strDate)
+        
+        return formattedString
     }
 }
 
