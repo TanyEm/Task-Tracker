@@ -292,7 +292,7 @@ Are you the owner?</string>
                     <connections>
                         <outlet property="guestButton" destination="uoU-zG-CgQ" id="siq-v1-sBN"/>
                         <outlet property="ownerButton" destination="IYG-wM-ER2" id="A80-ut-2vL"/>
-                        <segue destination="eKT-bp-Kpy" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="rC0-WB-e19"/>
+                        <segue destination="eKT-bp-Kpy" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="F4X-s5-JAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS8-Vq-ivJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -302,12 +302,14 @@ Are you the owner?</string>
         <!--Tasks-->
         <scene sceneID="U8h-lB-Miu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZgU-CM-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="TaskNavContoller" automaticallyAdjustsScrollViewInsets="NO" id="7ej-PB-UOb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tasks" id="IUm-9I-JTx"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -315,14 +317,13 @@ Are you the owner?</string>
                         <segue destination="A9O-1Z-liO" kind="relationship" relationship="rootViewController" id="OEH-JZ-BQG"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZgU-CM-kXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1317" y="-15"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="y7U-cL-fY0">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="eKT-bp-Kpy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="eKT-bp-Kpy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="LF1-Kb-aae"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b8d-en-jbp">
@@ -359,8 +360,8 @@ Are you the owner?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ISM-89-gHX"/>
-        <segue reference="U8r-OG-46w"/>
+        <segue reference="F4X-s5-JAZ"/>
+        <segue reference="mwK-Lq-9jc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

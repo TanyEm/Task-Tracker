@@ -139,10 +139,3 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     }
     
 }
-
-extension TasksListTableViewController: WelcomeViewControllerDelegate {
-    func passAccessStatus(isGuest access: Bool) {
-        guestAccess = access
-        print("GuestAccess", guestAccess)
-    }
-}

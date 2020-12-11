@@ -7,17 +7,12 @@
 
 import UIKit
 
-protocol WelcomeViewControllerDelegate {
-    func passAccessStatus(isGuest access: Bool)
-}
 
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var ownerButton: UIButton!
     @IBOutlet weak var guestButton: UIButton!
-    
-    var delegate: WelcomeViewControllerDelegate?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +26,6 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func moveAsGuest() {
-        self.delegate?.passAccessStatus(isGuest: true)
         performSegue(withIdentifier: "GuestAccess", sender: self)
     }
     
@@ -39,12 +33,11 @@ class WelcomeViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "GuestAccess" {
-//            if let tab = self.presentingViewController as? UITabBarController,
-//            let nav = tab.viewControllers?[0] as? UINavigationController,
-//            let controller = nav.viewControllers.first as? TasksListTableViewController {
-//                controller.guestAccess = true
-//            }
-//        }
+        if segue.identifier == "GuestAccess" {
+            let tab = segue.destination as? UITabBarController
+            let nav = tab!.viewControllers?[0] as? UINavigationController
+            let controller = nav!.viewControllers.first as? TasksListTableViewController
+                controller!.guestAccess = true
+        }
     }
 }
