@@ -13,7 +13,6 @@
 		73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB3257E5FC900605A66 /* AppDelegate.swift */; };
 		73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */; };
 		73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAB9257E5FC900605A66 /* Main.storyboard */; };
-		73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */; };
 		73E7CAC0257E5FCA00605A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CABF257E5FCA00605A66 /* Assets.xcassets */; };
 		73E7CAC3257E5FCA00605A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAC1257E5FCA00605A66 /* LaunchScreen.storyboard */; };
 		73E7CACE257E5FCB00605A66 /* Task_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CACD257E5FCB00605A66 /* Task_TrackerTests.swift */; };
@@ -58,7 +57,6 @@
 		73E7CAB3257E5FC900605A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		73E7CABA257E5FC900605A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		73E7CABD257E5FC900605A66 /* Task_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		73E7CABF257E5FCA00605A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73E7CAC2257E5FCA00605A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73E7CAC4257E5FCA00605A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				732CC8422582AA0C001764FB /* Controllers */,
 				732CC8462582AAC4001764FB /* Models */,
 				732CC8472582AAE5001764FB /* Services */,
-				73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */,
 				73E7CAC4257E5FCA00605A66 /* Info.plist */,
 			);
 			path = "Task Tracker";
@@ -404,7 +401,6 @@
 				73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */,
 				732CC865258426A6001764FB /* GesturesHendler.swift in Sources */,
 				73E7CB3C2581231900605A66 /* DataManager.swift in Sources */,
-				73E7CABE257E5FC900605A66 /* Task_Tracker.xcdatamodeld in Sources */,
 				732CC83D2582A13D001764FB /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,19 +736,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		73E7CABC257E5FC900605A66 /* Task_Tracker.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				73E7CABD257E5FC900605A66 /* Task_Tracker.xcdatamodel */,
-			);
-			currentVersion = 73E7CABD257E5FC900605A66 /* Task_Tracker.xcdatamodel */;
-			path = Task_Tracker.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 73E7CAA8257E5FC900605A66 /* Project object */;
 }

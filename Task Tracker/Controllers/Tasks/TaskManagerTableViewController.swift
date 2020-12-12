@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol TaskManagerViewControllerDelegate: class {
     // Should saves new task or updates data of task
@@ -21,10 +22,11 @@ class TaskManagerTableViewController: UITableViewController {
     @IBOutlet weak var shouldRemindSwitch: UISwitch!
     @IBOutlet weak var dueDateField: UITextField!
     
+    weak var delegate: TaskManagerViewControllerDelegate?
+    
     var taskToEdit: TaskListItem?
     var switchAccses = true
-    weak var delegate: TaskManagerViewControllerDelegate?
-    var datePickerVisible = false
+    var shouldRemind = false
     var dueDate = Date()
     let picker = UIDatePicker()
     var gestureHendler: GesturesHendler?
@@ -37,6 +39,11 @@ class TaskManagerTableViewController: UITableViewController {
             privacySwitch.isEnabled = false
             privacySwitch.isOn = false
         }
+        
+        if !shouldRemind {
+            shouldRemindSwitch.isOn = false
+        }
+        
         
         if let task = taskToEdit {
             title = "Edit your task 😉"
@@ -79,6 +86,7 @@ class TaskManagerTableViewController: UITableViewController {
             task.isPrivate = privacySwitch.isOn
             task.shouldRemind = shouldRemindSwitch.isOn
             task.dueDate = dueDate
+            task.scheduleNotification()
             delegate?.taskManagerViewController(self, didFinishEditing: task)
         } else {
             let task = TaskListItem()
@@ -87,14 +95,36 @@ class TaskManagerTableViewController: UITableViewController {
             task.isPrivate = privacySwitch.isOn
             task.shouldRemind = shouldRemindSwitch.isOn
             task.dueDate = dueDate
+            task.scheduleNotification()
             delegate?.taskManagerViewController(self, didFinishAdding: task)
+        }
+    }
+    
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+        textField.resignFirstResponder()
+
+        if switchControl.isOn {
+          let center = UNUserNotificationCenter.current()
+          center.requestAuthorization(options: [.alert, .sound]) {
+            granted, error in
+            if !granted{
+                DispatchQueue.main.async {
+                    self.showMessage(on: self, with: "Ooops!", message: "We have no permission to send reminders. Please, change permission on Settings to get reminders")
+                    self.shouldRemindSwitch.isOn = false
+                }
+            }
+          }
         }
     }
     
     // MARK: - DatePicker and Formatter
     
     func createPicker() {
+        
+        let currentDate = Date()
+        
         dueDateField.inputView = picker
+        picker.minimumDate = currentDate
         picker.datePickerMode = .dateAndTime
         picker.preferredDatePickerStyle = .wheels
         
@@ -117,6 +147,13 @@ class TaskManagerTableViewController: UITableViewController {
         let formattedString = dateFormatter.string(from: strDate)
         
         return formattedString
+    }
+    
+    func showMessage(on viewController:UIViewController, with title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        viewController.present(alert, animated: true, completion: nil)
     }
 }
 
