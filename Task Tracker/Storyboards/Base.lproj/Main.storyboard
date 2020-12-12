@@ -79,7 +79,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-mc-AgQ">
-                                            <rect key="frame" x="28" y="11" width="267" height="20"/>
+                                            <rect key="frame" x="28" y="11" width="267" height="20.5"/>
                                             <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                             <outlet property="delegate" destination="EeU-lS-OCq" id="qaq-0J-Jf5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add your task 😉" largeTitleDisplayMode="always" id="0Xc-VZ-pni">
+                    <navigationItem key="navigationItem" title="Add your task 😉" largeTitleDisplayMode="never" id="0Xc-VZ-pni">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="Iqk-Dq-LLK">
                             <connections>
                                 <action selector="done" destination="EeU-lS-OCq" id="kuB-hs-yzc"/>
@@ -316,7 +316,7 @@ Are you the owner?</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eKT-bp-Kpy" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ISM-89-gHX"/>
+                                            <action selector="moveByFaceID" destination="b5r-hB-mu7" eventType="touchUpInside" id="Ens-9Y-mmf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-zG-CgQ">
@@ -360,6 +360,7 @@ Are you the owner?</string>
                         <outlet property="guestButton" destination="uoU-zG-CgQ" id="siq-v1-sBN"/>
                         <outlet property="ownerButton" destination="IYG-wM-ER2" id="A80-ut-2vL"/>
                         <segue destination="eKT-bp-Kpy" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="F4X-s5-JAZ"/>
+                        <segue destination="eKT-bp-Kpy" kind="presentation" identifier="OwnerAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="KIk-6I-zAp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS8-Vq-ivJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -375,7 +376,7 @@ Are you the owner?</string>
                     <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -414,7 +415,7 @@ Are you the owner?</string>
                     <tabBarItem key="tabBarItem" title="Settings" id="tH9-0u-t1m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7Rj-Br-TQ8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -428,7 +429,7 @@ Are you the owner?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F4X-s5-JAZ"/>
+        <segue reference="KIk-6I-zAp"/>
         <segue reference="mwK-Lq-9jc"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -109,7 +109,8 @@ class TaskManagerTableViewController: UITableViewController {
             granted, error in
             if !granted{
                 DispatchQueue.main.async {
-                    self.showMessage(on: self, with: "Ooops!", message: "We have no permission to send reminders. Please, change permission on Settings to get reminders")
+                    let message = AlertMessage()
+                    message.showMessage(on: self, with: "Ooops!", message: "We have no permission to send reminders. Please, change permission on Settings to get reminders")
                     self.shouldRemindSwitch.isOn = false
                 }
             }
@@ -149,12 +150,12 @@ class TaskManagerTableViewController: UITableViewController {
         return formattedString
     }
     
-    func showMessage(on viewController:UIViewController, with title:String, message:String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        viewController.present(alert, animated: true, completion: nil)
-    }
+//    func showMessage(on viewController:UIViewController, with title:String, message:String) {
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//
+//        viewController.present(alert, animated: true, completion: nil)
+//    }
 }
 
 extension TaskManagerTableViewController: UITextFieldDelegate {

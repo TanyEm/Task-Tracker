@@ -27,7 +27,7 @@ class TasksListTableViewController: UITableViewController {
         
         navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
-        
+                
         print("guest access", guestAccess)
     }
     

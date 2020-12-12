@@ -42,7 +42,7 @@ class TaskListItem: NSObject, Codable {
     }
     
     func removeNotification() {
-      let center = UNUserNotificationCenter.current()
+        let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: ["\(String(describing: taskID))"])
     }
 }
