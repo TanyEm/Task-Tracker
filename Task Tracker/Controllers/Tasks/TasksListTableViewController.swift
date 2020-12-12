@@ -40,10 +40,16 @@ class TasksListTableViewController: UITableViewController {
     
     func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
         let label = cell.viewWithTag(1001) as! UILabel
+        
         if item.checked {
             label.text = "✔"
+            item.shouldRemind = false
+            item.scheduleNotification()
         } else {
             label.text = ""
+            item.shouldRemind = true
+            item.scheduleNotification()
+            
         }
     }
     

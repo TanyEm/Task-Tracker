@@ -127,7 +127,9 @@ class TaskManagerTableViewController: UITableViewController {
         dueDateField.inputView = picker
         picker.minimumDate = currentDate
         picker.datePickerMode = .dateAndTime
-        picker.preferredDatePickerStyle = .wheels
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
+        }
         
         picker.addTarget(self, action: #selector(datePickerChanged(date:)), for: .valueChanged)
     }
@@ -149,13 +151,6 @@ class TaskManagerTableViewController: UITableViewController {
         
         return formattedString
     }
-    
-//    func showMessage(on viewController:UIViewController, with title:String, message:String) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//
-//        viewController.present(alert, animated: true, completion: nil)
-//    }
 }
 
 extension TaskManagerTableViewController: UITextFieldDelegate {

@@ -36,7 +36,7 @@ class WelcomeViewController: UIViewController {
         var error: NSError?
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            let reason = "Identify yourself!"
+            let reason = "Please, identify yourself"
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
                 [weak self] success, authenticationError in
@@ -45,7 +45,7 @@ class WelcomeViewController: UIViewController {
                     if success {
                         self?.unlockSecretMessage()
                     } else {
-                        self?.message.showMessage(on: self!, with: "Ooops! Authentication failed", message: "You could not be verified; please try again")
+                        self?.message.showMessage(on: self!, with: "Ooops! Authentication failed", message: "You could not be verified. Please try again")
                     }
                 }
             }
