@@ -32,6 +32,7 @@ class TasksListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.rowHeight = UITableView.automaticDimension
         itemsToShow = storage.getTasks(isGuest: guestAccess)
         tableView.reloadData()
     }

@@ -16,11 +16,11 @@ protocol TaskManagerViewControllerDelegate: class {
 
 class TaskManagerTableViewController: UITableViewController {
     
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var privacySwitch: UISwitch!
     @IBOutlet weak var shouldRemindSwitch: UISwitch!
     @IBOutlet weak var dueDateField: UITextField!
+    @IBOutlet weak var textView: UITextView!
     
     weak var delegate: TaskManagerViewControllerDelegate?
     
@@ -33,6 +33,8 @@ class TaskManagerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textView.delegate = self
 
         // When a guest comes a switcher must be forbidden
         if !switchAccses {
@@ -47,7 +49,7 @@ class TaskManagerTableViewController: UITableViewController {
         
         if let task = taskToEdit {
             title = "Edit your task 😉"
-            textField.text = task.text
+            textView.text = task.text
             doneBarButton.isEnabled = true
             privacySwitch.isOn = task.isPrivate
             shouldRemindSwitch.isOn = task.shouldRemind
@@ -73,8 +75,8 @@ class TaskManagerTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        textField.becomeFirstResponder()
+        tableView.rowHeight = UITableView.automaticDimension
+        textView.becomeFirstResponder()
         
     }
     
@@ -82,7 +84,7 @@ class TaskManagerTableViewController: UITableViewController {
         
         // Send task new or edited data thru delegate
         if let task = taskToEdit {
-            task.text = textField.text!
+            task.text = textView.text!
             task.isPrivate = privacySwitch.isOn
             task.shouldRemind = shouldRemindSwitch.isOn
             task.dueDate = dueDate
@@ -90,7 +92,7 @@ class TaskManagerTableViewController: UITableViewController {
             delegate?.taskManagerViewController(self, didFinishEditing: task)
         } else {
             let task = TaskListItem()
-            task.text = textField.text!
+            task.text = textView.text!
             task.checked = false
             task.isPrivate = privacySwitch.isOn
             task.shouldRemind = shouldRemindSwitch.isOn
@@ -101,7 +103,7 @@ class TaskManagerTableViewController: UITableViewController {
     }
     
     @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
-        textField.resignFirstResponder()
+        dueDateField.becomeFirstResponder()
 
         if switchControl.isOn {
           let center = UNUserNotificationCenter.current()
@@ -115,6 +117,8 @@ class TaskManagerTableViewController: UITableViewController {
                 }
             }
           }
+        } else {
+            dueDateField.resignFirstResponder()
         }
     }
     
@@ -153,21 +157,21 @@ class TaskManagerTableViewController: UITableViewController {
     }
 }
 
-extension TaskManagerTableViewController: UITextFieldDelegate {
+extension TaskManagerTableViewController: UITextFieldDelegate, UITextViewDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        // forbids creating an empty task by disabling the Done button
-        let oldText = textField.text!
-        let stringRange = Range(range, in:oldText)!
-        let newText = oldText.replacingCharacters(in: stringRange, with: string)
-        
-        if newText.isEmpty {
-            doneBarButton.isEnabled = false
-        } else {
-            doneBarButton.isEnabled = true
+    func textViewDidChange(_ textView: UITextView) {
+
+        let startHeight = textView.frame.size.height
+        let calculationHeight = textView.sizeThatFits(textView.frame.size).height
+
+        if startHeight != calculationHeight {
+
+            // The animation should be to prevent jumping while input
+            // text but an update to true is needed in the end
+            UIView.setAnimationsEnabled(false)
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)  // Re-enable animation
         }
-        
-        return true
     }
 }
