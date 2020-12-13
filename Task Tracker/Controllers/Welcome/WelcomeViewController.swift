@@ -50,7 +50,10 @@ class WelcomeViewController: UIViewController {
                 }
             }
         } else {
-            message.showMessage(on: self, with: "Biometry unavailable", message: "Your device is not configured for biometric authentication")
+            DispatchQueue.main.async {
+                self.message.showMessage(on: self, with: "Biometry unavailable", message: "Your device is not configured for biometric authentication. Enter your pincode")
+            }
+            performSegue(withIdentifier: "EnterPincode", sender: self)
         }
         
     }

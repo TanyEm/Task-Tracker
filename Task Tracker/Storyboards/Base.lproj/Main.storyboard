@@ -23,6 +23,146 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Pincode View Controller-->
+        <scene sceneID="jEy-0l-j6t">
+            <objects>
+                <viewController id="eOJ-4m-a1U" customClass="PincodeViewController" customModule="Task_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4pg-wA-CBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqB-qV-jvU">
+                                <rect key="frame" x="20" y="728" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pID-CV-IOW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-CR-8nP">
+                                <rect key="frame" x="25" y="52" width="364" height="184"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-CS-Gzo">
+                                        <rect key="frame" x="57" y="8" width="250" height="72"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-Er-TlE">
+                                        <rect key="frame" x="22" y="127" width="320" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-pB-6Vz">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gD2-XZ-bXu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-Cp-pi0">
+                                                        <rect key="frame" x="54.5" y="0.0" width="47" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1aj-5Z-QfZ">
+                                                        <rect key="frame" x="109.5" y="0.0" width="46.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qke-Dj-PD2">
+                                                        <rect key="frame" x="164" y="0.0" width="46.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8n8-Wv-qwH">
+                                                        <rect key="frame" x="218.5" y="0.0" width="47" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Gh-jU6">
+                                                        <rect key="frame" x="273.5" y="0.0" width="46.5" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="8n8-Wv-qwH" firstAttribute="top" secondItem="s4n-pB-6Vz" secondAttribute="top" id="43g-gU-wKK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8n8-Wv-qwH" secondAttribute="bottom" id="4UG-hb-rfh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7gm-Gh-jU6" secondAttribute="bottom" id="Bds-i3-SnI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1aj-5Z-QfZ" secondAttribute="bottom" id="CIM-R2-93w"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7gm-Gh-jU6" secondAttribute="trailing" id="FYe-JX-kLN"/>
+                                                    <constraint firstItem="gD2-XZ-bXu" firstAttribute="leading" secondItem="s4n-pB-6Vz" secondAttribute="leading" id="Hvn-9v-bqw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7gm-Gh-jU6" secondAttribute="bottom" id="Jur-iy-m85"/>
+                                                    <constraint firstItem="qke-Dj-PD2" firstAttribute="top" secondItem="s4n-pB-6Vz" secondAttribute="top" id="LNQ-nr-yTT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qke-Dj-PD2" secondAttribute="bottom" id="Q1k-zY-kqa"/>
+                                                    <constraint firstItem="gD2-XZ-bXu" firstAttribute="top" secondItem="s4n-pB-6Vz" secondAttribute="top" id="ZmV-y2-zyu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gD2-XZ-bXu" secondAttribute="bottom" id="maa-wZ-c83"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NZf-Cp-pi0" secondAttribute="bottom" id="ohI-Wg-E1q"/>
+                                                    <constraint firstItem="1aj-5Z-QfZ" firstAttribute="top" secondItem="s4n-pB-6Vz" secondAttribute="top" id="xxr-Wo-Cqq"/>
+                                                    <constraint firstItem="NZf-Cp-pi0" firstAttribute="top" secondItem="s4n-pB-6Vz" secondAttribute="top" id="y63-J8-MUx"/>
+                                                    <constraint firstAttribute="height" constant="50" id="yY2-Fh-Gtp"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="0vT-CS-Gzo" firstAttribute="leading" secondItem="fWQ-CR-8nP" secondAttribute="leading" constant="57" id="A4g-16-lvR"/>
+                                    <constraint firstItem="VRZ-Er-TlE" firstAttribute="leading" secondItem="fWQ-CR-8nP" secondAttribute="leading" constant="22" id="HBN-K9-KJV"/>
+                                    <constraint firstItem="0vT-CS-Gzo" firstAttribute="centerX" secondItem="fWQ-CR-8nP" secondAttribute="centerX" id="LD0-HW-nJH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0vT-CS-Gzo" secondAttribute="trailing" id="VZO-WC-Lpd"/>
+                                    <constraint firstItem="VRZ-Er-TlE" firstAttribute="top" secondItem="0vT-CS-Gzo" secondAttribute="bottom" constant="47" id="X9J-7L-jvu"/>
+                                    <constraint firstItem="0vT-CS-Gzo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fWQ-CR-8nP" secondAttribute="leading" id="buA-DX-EUm"/>
+                                    <constraint firstAttribute="bottom" secondItem="VRZ-Er-TlE" secondAttribute="bottom" constant="7" id="hZY-fd-ocd"/>
+                                    <constraint firstItem="VRZ-Er-TlE" firstAttribute="centerX" secondItem="0vT-CS-Gzo" secondAttribute="centerX" id="i1M-Ca-ZFG"/>
+                                    <constraint firstAttribute="trailing" secondItem="VRZ-Er-TlE" secondAttribute="trailing" constant="22" id="j74-kf-mAz"/>
+                                    <constraint firstItem="0vT-CS-Gzo" firstAttribute="top" secondItem="fWQ-CR-8nP" secondAttribute="top" constant="8" id="nmy-6b-ZSC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zUw-FF-ktn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CqB-qV-jvU" secondAttribute="trailing" id="2LE-zC-Alm"/>
+                            <constraint firstItem="CqB-qV-jvU" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4pg-wA-CBe" secondAttribute="trailingMargin" id="FZv-S7-n45"/>
+                            <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zUw-FF-ktn" secondAttribute="leading" id="G4V-dv-nDe"/>
+                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="top" secondItem="zUw-FF-ktn" secondAttribute="top" constant="52" id="JvA-Oq-BFQ"/>
+                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="25" id="QH2-gH-fdZ"/>
+                            <constraint firstItem="zUw-FF-ktn" firstAttribute="bottom" secondItem="CqB-qV-jvU" secondAttribute="bottom" constant="30" id="SBM-Pm-ARe"/>
+                            <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" secondItem="fWQ-CR-8nP" secondAttribute="trailing" constant="25" id="Xgn-ic-hVU"/>
+                            <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4pg-wA-CBe" secondAttribute="leadingMargin" id="hhM-E1-Oqg"/>
+                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="25" id="wec-5Y-1Qg"/>
+                            <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" secondItem="CqB-qV-jvU" secondAttribute="trailing" constant="20" id="whk-LI-Zmy"/>
+                            <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="20" id="zTh-24-gfU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MhE-uU-ILj"/>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="SBM-Pm-ARe" id="gtO-4t-68r"/>
+                        <outlet property="fifthCell" destination="8n8-Wv-qwH" id="bvd-f6-U4n"/>
+                        <outlet property="firstCell" destination="gD2-XZ-bXu" id="TDD-lI-KfM"/>
+                        <outlet property="fourthCell" destination="qke-Dj-PD2" id="M4B-17-4el"/>
+                        <outlet property="secondCell" destination="NZf-Cp-pi0" id="65Q-Za-UwN"/>
+                        <outlet property="sentPin" destination="CqB-qV-jvU" id="Sc0-hY-g05"/>
+                        <outlet property="sixthCell" destination="7gm-Gh-jU6" id="u7S-8z-xzz"/>
+                        <outlet property="thirdCell" destination="1aj-5Z-QfZ" id="A9h-58-Pow"/>
+                        <segue destination="eKT-bp-Kpy" kind="presentation" identifier="PincodeConfirmed" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="hqY-Qw-qtv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9k7-aN-Tq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-510.14492753623193" y="754.6875"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="96c-e4-rEh">
             <objects>
@@ -237,13 +377,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMd-kJ-FOb">
-                                                    <rect key="frame" x="20" y="11" width="69" height="20.5"/>
+                                                    <rect key="frame" x="20" y="11" width="67" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose date" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wIC-8n-O8q">
-                                                    <rect key="frame" x="102" y="4" width="252" height="34.5"/>
+                                                    <rect key="frame" x="100" y="4" width="254" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -361,6 +501,7 @@ Are you the owner?</string>
                         <outlet property="ownerButton" destination="IYG-wM-ER2" id="A80-ut-2vL"/>
                         <segue destination="eKT-bp-Kpy" kind="presentation" identifier="GuestAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="F4X-s5-JAZ"/>
                         <segue destination="eKT-bp-Kpy" kind="presentation" identifier="OwnerAccess" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="KIk-6I-zAp"/>
+                        <segue destination="eOJ-4m-a1U" kind="show" identifier="EnterPincode" id="L4V-5h-Xne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS8-Vq-ivJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,7 +517,7 @@ Are you the owner?</string>
                     <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -429,7 +570,7 @@ Are you the owner?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KIk-6I-zAp"/>
+        <segue reference="hqY-Qw-qtv"/>
         <segue reference="mwK-Lq-9jc"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -438,6 +579,9 @@ Are you the owner?</string>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
