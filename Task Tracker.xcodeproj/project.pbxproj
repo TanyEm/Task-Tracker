@@ -18,7 +18,7 @@
 		73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAB9257E5FC900605A66 /* Main.storyboard */; };
 		73E7CAC0257E5FCA00605A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CABF257E5FCA00605A66 /* Assets.xcassets */; };
 		73E7CAC3257E5FCA00605A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAC1257E5FCA00605A66 /* LaunchScreen.storyboard */; };
-		73E7CACE257E5FCB00605A66 /* Task_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CACD257E5FCB00605A66 /* Task_TrackerTests.swift */; };
+		73E7CACE257E5FCB00605A66 /* Task_TrackerDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CACD257E5FCB00605A66 /* Task_TrackerDataManagerTests.swift */; };
 		73E7CAD9257E5FCB00605A66 /* Task_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAD8257E5FCB00605A66 /* Task_TrackerUITests.swift */; };
 		73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAEF257E855300605A66 /* TasksListTableViewController.swift */; };
 		73E7CB0B257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB02257E9A0600605A66 /* SF-Compact-Rounded-Medium.otf */; };
@@ -67,7 +67,7 @@
 		73E7CAC2257E5FCA00605A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73E7CAC4257E5FCA00605A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E7CAC9257E5FCB00605A66 /* Task TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E7CACD257E5FCB00605A66 /* Task_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_TrackerTests.swift; sourceTree = "<group>"; };
+		73E7CACD257E5FCB00605A66 /* Task_TrackerDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_TrackerDataManagerTests.swift; sourceTree = "<group>"; };
 		73E7CACF257E5FCB00605A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E7CAD4257E5FCB00605A66 /* Task TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAD8257E5FCB00605A66 /* Task_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_TrackerUITests.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 		73E7CACC257E5FCB00605A66 /* Task TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				73E7CACD257E5FCB00605A66 /* Task_TrackerTests.swift */,
+				73E7CACD257E5FCB00605A66 /* Task_TrackerDataManagerTests.swift */,
 				73E7CACF257E5FCB00605A66 /* Info.plist */,
 			);
 			path = "Task TrackerTests";
@@ -421,7 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73E7CACE257E5FCB00605A66 /* Task_TrackerTests.swift in Sources */,
+				73E7CACE257E5FCB00605A66 /* Task_TrackerDataManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

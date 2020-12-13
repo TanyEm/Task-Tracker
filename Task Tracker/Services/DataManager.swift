@@ -13,7 +13,7 @@ enum DataError: Error {
 
 class DataManager {
     
-    var items = [TaskListItem]()
+    private var items = [TaskListItem]()
     
     init() {
         loadChecklistItems()
@@ -32,6 +32,17 @@ class DataManager {
         }
         return items
     }
+    
+    func getTask(id: String) throws -> TaskListItem {
+        for item in items {
+            if item.taskID?.uuidString == id {
+                return item
+            }
+        }
+        
+        throw DataError.taskNotFound(id: id)
+    }
+
     
     func editTask(id: String, taskItem: TaskListItem) throws {
         var idxToChange = -1

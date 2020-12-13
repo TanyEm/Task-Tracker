@@ -43,52 +43,52 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-CR-8nP">
-                                <rect key="frame" x="25" y="52" width="364" height="184"/>
+                                <rect key="frame" x="6" y="52" width="403" height="149"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-CS-Gzo">
-                                        <rect key="frame" x="57" y="8" width="250" height="72"/>
+                                        <rect key="frame" x="57" y="8" width="289" height="35"/>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-Er-TlE">
-                                        <rect key="frame" x="22" y="127" width="320" height="50"/>
+                                        <rect key="frame" x="22" y="90" width="359" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-pB-6Vz">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gD2-XZ-bXu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="53" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-Cp-pi0">
-                                                        <rect key="frame" x="54.5" y="0.0" width="47" height="50"/>
+                                                        <rect key="frame" x="61" y="0.0" width="53.5" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1aj-5Z-QfZ">
-                                                        <rect key="frame" x="109.5" y="0.0" width="46.5" height="50"/>
+                                                        <rect key="frame" x="122.5" y="0.0" width="53" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qke-Dj-PD2">
-                                                        <rect key="frame" x="164" y="0.0" width="46.5" height="50"/>
+                                                        <rect key="frame" x="183.5" y="0.0" width="53" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8n8-Wv-qwH">
-                                                        <rect key="frame" x="218.5" y="0.0" width="47" height="50"/>
+                                                        <rect key="frame" x="244.5" y="0.0" width="53.5" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gm-Gh-jU6">
-                                                        <rect key="frame" x="273.5" y="0.0" width="46.5" height="50"/>
+                                                        <rect key="frame" x="306" y="0.0" width="53" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -123,7 +123,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0vT-CS-Gzo" secondAttribute="trailing" id="VZO-WC-Lpd"/>
                                     <constraint firstItem="VRZ-Er-TlE" firstAttribute="top" secondItem="0vT-CS-Gzo" secondAttribute="bottom" constant="47" id="X9J-7L-jvu"/>
                                     <constraint firstItem="0vT-CS-Gzo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fWQ-CR-8nP" secondAttribute="leading" id="buA-DX-EUm"/>
-                                    <constraint firstAttribute="bottom" secondItem="VRZ-Er-TlE" secondAttribute="bottom" constant="7" id="hZY-fd-ocd"/>
+                                    <constraint firstAttribute="bottom" secondItem="VRZ-Er-TlE" secondAttribute="bottom" constant="9" id="hZY-fd-ocd"/>
                                     <constraint firstItem="VRZ-Er-TlE" firstAttribute="centerX" secondItem="0vT-CS-Gzo" secondAttribute="centerX" id="i1M-Ca-ZFG"/>
                                     <constraint firstAttribute="trailing" secondItem="VRZ-Er-TlE" secondAttribute="trailing" constant="22" id="j74-kf-mAz"/>
                                     <constraint firstItem="0vT-CS-Gzo" firstAttribute="top" secondItem="fWQ-CR-8nP" secondAttribute="top" constant="8" id="nmy-6b-ZSC"/>
@@ -137,11 +137,11 @@
                             <constraint firstItem="CqB-qV-jvU" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4pg-wA-CBe" secondAttribute="trailingMargin" id="FZv-S7-n45"/>
                             <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zUw-FF-ktn" secondAttribute="leading" id="G4V-dv-nDe"/>
                             <constraint firstItem="fWQ-CR-8nP" firstAttribute="top" secondItem="zUw-FF-ktn" secondAttribute="top" constant="52" id="JvA-Oq-BFQ"/>
-                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="25" id="QH2-gH-fdZ"/>
+                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="6" id="QH2-gH-fdZ"/>
                             <constraint firstItem="zUw-FF-ktn" firstAttribute="bottom" secondItem="CqB-qV-jvU" secondAttribute="bottom" constant="30" id="SBM-Pm-ARe"/>
-                            <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" secondItem="fWQ-CR-8nP" secondAttribute="trailing" constant="25" id="Xgn-ic-hVU"/>
+                            <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" secondItem="fWQ-CR-8nP" secondAttribute="trailing" constant="5" id="Xgn-ic-hVU"/>
                             <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4pg-wA-CBe" secondAttribute="leadingMargin" id="hhM-E1-Oqg"/>
-                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="25" id="wec-5Y-1Qg"/>
+                            <constraint firstItem="fWQ-CR-8nP" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="6" id="wec-5Y-1Qg"/>
                             <constraint firstItem="zUw-FF-ktn" firstAttribute="trailing" secondItem="CqB-qV-jvU" secondAttribute="trailing" constant="20" id="whk-LI-Zmy"/>
                             <constraint firstItem="CqB-qV-jvU" firstAttribute="leading" secondItem="zUw-FF-ktn" secondAttribute="leading" constant="20" id="zTh-24-gfU"/>
                         </constraints>
@@ -435,10 +435,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-FM-FnL">
-                                <rect key="frame" x="49" y="323" width="316" height="250"/>
+                                <rect key="frame" x="50.5" y="324" width="313" height="248"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcG-5x-fLa">
-                                        <rect key="frame" x="26" y="0.0" width="264" height="72"/>
+                                        <rect key="frame" x="26" y="0.0" width="261" height="70"/>
                                         <string key="text">Hello  👋
 Are you the owner?</string>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
@@ -446,7 +446,7 @@ Are you the owner?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-wM-ER2">
-                                        <rect key="frame" x="32" y="121" width="252" height="45"/>
+                                        <rect key="frame" x="32" y="119" width="249" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="XCR-Jh-zD2"/>
@@ -460,7 +460,7 @@ Are you the owner?</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-zG-CgQ">
-                                        <rect key="frame" x="32" y="185" width="252" height="45"/>
+                                        <rect key="frame" x="32" y="183" width="249" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="S0g-Vh-qVO"/>
