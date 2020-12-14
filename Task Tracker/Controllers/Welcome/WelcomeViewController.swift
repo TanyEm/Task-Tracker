@@ -23,7 +23,7 @@ class WelcomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         
-        makeFlyingEmoji()
+//        makeFlyingEmoji()
         
         ownerButton.layer.cornerRadius = 15
         guestButton.layer.cornerRadius = 15
@@ -47,7 +47,7 @@ class WelcomeViewController: UIViewController {
                     if success {
                         self?.unlockSecretMessage()
                     } else {
-                        self?.message.showMessage(on: self!, with: "Ooops! Authentication failed", message: "You could not be verified. Please try again")
+                        self?.loginWithPincode()
                     }
                 }
             }
@@ -55,7 +55,7 @@ class WelcomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.message.showMessage(on: self, with: "Biometry unavailable", message: "Your device is not configured for biometric authentication. Enter your pincode")
             }
-            performSegue(withIdentifier: "EnterPincode", sender: self)
+            loginWithPincode()
         }
         
     }
@@ -65,6 +65,10 @@ class WelcomeViewController: UIViewController {
 
     }
     
+    func loginWithPincode() {
+        performSegue(withIdentifier: "EnterPincode", sender: self)
+    }
+        
     // MARK: - Animation
     
     func makeFlyingEmoji() {

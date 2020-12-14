@@ -25,9 +25,9 @@ class Emitter {
     
     static var velocities:[Int] = [
             80,
-            25,
+            35,
             55,
-            10
+            20
     ]
 
         

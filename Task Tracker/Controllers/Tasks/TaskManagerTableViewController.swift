@@ -56,17 +56,13 @@ class TaskManagerTableViewController: UITableViewController {
             dueDateField.text = dateFormatter(strDate: task.dueDate)
         }
         
-        let largeTitleFont = [NSAttributedString.Key.font:
-                                UIFont(name: "SF Compact Rounded Bold",
-                                       size: 35) ??
-                                UIFont.boldSystemFont(ofSize: 35)]
         let titleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Semibold",
                                    size: 20) ??
                             UIFont.boldSystemFont(ofSize: 20)]
         
-        navigationController?.navigationBar.largeTitleTextAttributes = largeTitleFont
         navigationController?.navigationBar.titleTextAttributes = titleFont
+        navigationItem.largeTitleDisplayMode = .never
         
         createPicker()
         gestureHendler = GesturesHendler(view: self.view)

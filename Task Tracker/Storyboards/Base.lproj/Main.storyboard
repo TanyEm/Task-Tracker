@@ -41,6 +41,9 @@
                                 <state key="normal" title="Send">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveNext" destination="eOJ-4m-a1U" eventType="touchUpInside" id="Erm-gh-CVw"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-CR-8nP">
                                 <rect key="frame" x="6" y="52" width="403" height="150"/>
@@ -175,7 +178,7 @@
                                 <rect key="frame" x="107" y="425.5" width="200" height="45"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="GPj-T4-Mza"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="GPj-T4-Mza"/>
                                     <constraint firstAttribute="height" constant="45" id="T3G-OS-w6O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Medium" family="SF Compact Rounded" pointSize="22"/>
@@ -435,10 +438,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-FM-FnL">
-                                <rect key="frame" x="49" y="323" width="316" height="250"/>
+                                <rect key="frame" x="53.5" y="324" width="307" height="248"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcG-5x-fLa">
-                                        <rect key="frame" x="26" y="0.0" width="264" height="72"/>
+                                        <rect key="frame" x="20" y="0.0" width="261" height="70"/>
                                         <string key="text">Hello  👋
 Are you the owner?</string>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
@@ -446,7 +449,7 @@ Are you the owner?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-wM-ER2">
-                                        <rect key="frame" x="32" y="121" width="252" height="45"/>
+                                        <rect key="frame" x="32" y="119" width="243" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="XCR-Jh-zD2"/>
@@ -460,7 +463,7 @@ Are you the owner?</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-zG-CgQ">
-                                        <rect key="frame" x="32" y="185" width="252" height="45"/>
+                                        <rect key="frame" x="32" y="183" width="243" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="S0g-Vh-qVO"/>
@@ -483,7 +486,7 @@ Are you the owner?</string>
                                     <constraint firstAttribute="trailing" secondItem="TcG-5x-fLa" secondAttribute="trailing" constant="26" id="T7v-CE-1Mf"/>
                                     <constraint firstAttribute="trailing" secondItem="uoU-zG-CgQ" secondAttribute="trailing" constant="32" id="aEN-1U-MEJ"/>
                                     <constraint firstItem="IYG-wM-ER2" firstAttribute="top" secondItem="TcG-5x-fLa" secondAttribute="bottom" constant="49" id="ar3-Rx-OpZ"/>
-                                    <constraint firstItem="TcG-5x-fLa" firstAttribute="leading" secondItem="0ci-FM-FnL" secondAttribute="leading" constant="26" id="j9A-mJ-uAG"/>
+                                    <constraint firstItem="TcG-5x-fLa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0ci-FM-FnL" secondAttribute="leading" constant="20" symbolic="YES" id="j9A-mJ-uAG"/>
                                     <constraint firstItem="IYG-wM-ER2" firstAttribute="leading" secondItem="0ci-FM-FnL" secondAttribute="leading" constant="32" id="kcK-fe-hci"/>
                                     <constraint firstItem="TcG-5x-fLa" firstAttribute="top" secondItem="0ci-FM-FnL" secondAttribute="top" id="v2Y-g2-Hmt"/>
                                 </constraints>
@@ -512,12 +515,11 @@ Are you the owner?</string>
         <scene sceneID="U8h-lB-Miu">
             <objects>
                 <navigationController storyboardIdentifier="TaskNavContoller" automaticallyAdjustsScrollViewInsets="NO" id="7ej-PB-UOb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tasks" id="IUm-9I-JTx"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="books.vertical" catalog="system" landscapeImage="books.vertical" selectedImage="books.vertical" id="IUm-9I-JTx"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Zb1-mu-mi9"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Zb1-mu-mi9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gJb-aP-4PL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -553,7 +555,7 @@ Are you the owner?</string>
         <scene sceneID="t4q-Y1-0le">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hI5-Ia-RQA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="tH9-0u-t1m"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" landscapeImage="settings" selectedImage="settings" id="tH9-0u-t1m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7Rj-Br-TQ8">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -574,6 +576,8 @@ Are you the owner?</string>
         <segue reference="mwK-Lq-9jc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
+        <image name="settings" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
