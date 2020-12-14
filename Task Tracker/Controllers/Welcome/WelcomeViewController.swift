@@ -23,6 +23,8 @@ class WelcomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         
+        makeFlyingEmoji()
+        
         ownerButton.layer.cornerRadius = 15
         guestButton.layer.cornerRadius = 15
     }
@@ -61,6 +63,17 @@ class WelcomeViewController: UIViewController {
     func unlockSecretMessage() {
         performSegue(withIdentifier: "OwnerAccess", sender: self)
 
+    }
+    
+    // MARK: - Animation
+    
+    func makeFlyingEmoji() {
+        let emitter = Emitter.get()
+        emitter.emitterPosition = CGPoint(x: view.frame.width/2,
+                                          y: view.frame.maxY)
+        emitter.emitterSize = CGSize(width: view.frame.width,
+                                     height: 100)
+        view.layer.insertSublayer(emitter, at: 0)
     }
     
     // MARK: - Navigation

@@ -13,6 +13,7 @@
 		7372AE152585415D00EA71CC /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE142585415D00EA71CC /* AlertMessage.swift */; };
 		7372AE2525869A1200EA71CC /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE2425869A1200EA71CC /* PincodeViewController.swift */; };
 		7372AE2A25869C9300EA71CC /* ButtonMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE2925869C9300EA71CC /* ButtonMover.swift */; };
+		7372AE352586E73C00EA71CC /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE342586E73C00EA71CC /* Emitter.swift */; };
 		73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB3257E5FC900605A66 /* AppDelegate.swift */; };
 		73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */; };
 		73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAB9257E5FC900605A66 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		7372AE142585415D00EA71CC /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		7372AE2425869A1200EA71CC /* PincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeViewController.swift; sourceTree = "<group>"; };
 		7372AE2925869C9300EA71CC /* ButtonMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMover.swift; sourceTree = "<group>"; };
+		7372AE342586E73C00EA71CC /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		73E7CAB0257E5FC900605A66 /* Task Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAB3257E5FC900605A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7CB1F257FD95600605A66 /* TaskListModel.swift */,
+				7372AE342586E73C00EA71CC /* Emitter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				732CC865258426A6001764FB /* GesturesHendler.swift in Sources */,
 				7372AE2A25869C9300EA71CC /* ButtonMover.swift in Sources */,
 				73E7CB3C2581231900605A66 /* DataManager.swift in Sources */,
+				7372AE352586E73C00EA71CC /* Emitter.swift in Sources */,
 				732CC83D2582A13D001764FB /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

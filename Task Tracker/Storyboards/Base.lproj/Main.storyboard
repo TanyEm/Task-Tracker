@@ -43,16 +43,16 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-CR-8nP">
-                                <rect key="frame" x="6" y="52" width="403" height="149"/>
+                                <rect key="frame" x="6" y="52" width="403" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-CS-Gzo">
-                                        <rect key="frame" x="57" y="8" width="289" height="35"/>
+                                        <rect key="frame" x="57" y="8" width="289" height="36"/>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VRZ-Er-TlE">
-                                        <rect key="frame" x="22" y="90" width="359" height="50"/>
+                                        <rect key="frame" x="22" y="91" width="359" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-pB-6Vz">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
@@ -435,10 +435,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ci-FM-FnL">
-                                <rect key="frame" x="50.5" y="324" width="313" height="248"/>
+                                <rect key="frame" x="49" y="323" width="316" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcG-5x-fLa">
-                                        <rect key="frame" x="26" y="0.0" width="261" height="70"/>
+                                        <rect key="frame" x="26" y="0.0" width="264" height="72"/>
                                         <string key="text">Hello  👋
 Are you the owner?</string>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Bold" family="SF Compact Rounded" pointSize="30"/>
@@ -446,7 +446,7 @@ Are you the owner?</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYG-wM-ER2">
-                                        <rect key="frame" x="32" y="119" width="249" height="45"/>
+                                        <rect key="frame" x="32" y="121" width="252" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="XCR-Jh-zD2"/>
@@ -460,7 +460,7 @@ Are you the owner?</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoU-zG-CgQ">
-                                        <rect key="frame" x="32" y="183" width="249" height="45"/>
+                                        <rect key="frame" x="32" y="185" width="252" height="45"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6588235294" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="S0g-Vh-qVO"/>
@@ -474,7 +474,7 @@ Are you the owner?</string>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="uoU-zG-CgQ" firstAttribute="top" secondItem="IYG-wM-ER2" secondAttribute="bottom" constant="19" id="67w-kB-XyZ"/>
                                     <constraint firstItem="uoU-zG-CgQ" firstAttribute="leading" secondItem="0ci-FM-FnL" secondAttribute="leading" constant="32" id="C5P-Lu-6NV"/>
@@ -570,7 +570,7 @@ Are you the owner?</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hqY-Qw-qtv"/>
+        <segue reference="F4X-s5-JAZ"/>
         <segue reference="mwK-Lq-9jc"/>
     </inferredMetricsTieBreakers>
     <resources>
