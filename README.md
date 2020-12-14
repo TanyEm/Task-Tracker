@@ -1,5 +1,15 @@
 # Task-Tracker
 
+## Table of Contents
+
+- [Screenshots](#screenshots)
+- [Description](#description)
+- [Implementation notes](#implementation-notes)
+- [Things to improve](#things-to-improve)
+- [Xcode Project Setup](#xcode-project-setup)
+
+## Screenshots
+
 <img src="https://github.com/TanyEm/Task-Tracker/blob/main/task_tracker.gif" height="480"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/1.png" height="500"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/2.png" height="500"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/3.png" height="500"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/4.png" height="500"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/5.png" height="500"> <img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/6.png" height="500"><img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/7.png" height="500"><img src="https://github.com/TanyEm/Task-Tracker/blob/main/screenshots/8.png" height="500">
 ## Description
 
