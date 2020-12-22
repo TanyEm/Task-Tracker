@@ -8,8 +8,8 @@
 import XCTest
 @testable import Task_Tracker
 
-class Task_TrackerDataManagerTests: XCTestCase {
-    
+class Task_TrackerAbstractTaskManagerTests: XCTestCase {
+
     private func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -38,21 +38,23 @@ class Task_TrackerDataManagerTests: XCTestCase {
     }
 
     func testCreateTask() throws {
-        let dataManager = DataManager()
+        let taskManager = AbstractTaskManager()
+
 
         let expectedTask = TaskListItem()
         expectedTask.text = "test text"
 
-        dataManager.createTask(taskItem: expectedTask)
+        taskManager.createTask(taskItem: expectedTask)
         
-        let gotTask = try dataManager.getTask(id: expectedTask.taskID!.uuidString)
+        let gotTask = try taskManager.getTask(id: expectedTask.taskID!.uuidString)
         
         XCTAssertEqual(expectedTask.taskID!.uuidString, gotTask.taskID!.uuidString)
         XCTAssertEqual(expectedTask.text, gotTask.text)
     }
     
     func testGetTasks() throws {
-        let dataManager = DataManager()
+        let taskManager = AbstractTaskManager()
+
 
         let taskPrivate = TaskListItem()
         taskPrivate.text = "private text"
@@ -62,26 +64,20 @@ class Task_TrackerDataManagerTests: XCTestCase {
         taskPublic.text = "public text"
         taskPublic.isPrivate = false
 
-        dataManager.createTask(taskItem: taskPrivate)
-        dataManager.createTask(taskItem: taskPublic)
+        taskManager.createTask(taskItem: taskPrivate)
+        taskManager.createTask(taskItem: taskPublic)
         
-        var gotTasks = dataManager.getTasks(isGuest: false)
+        let gotTasks = taskManager.getTasks()
         
         XCTAssertEqual(gotTasks.count, 2)
         XCTAssertEqual(gotTasks[0].taskID!.uuidString, taskPrivate.taskID!.uuidString)
         XCTAssertEqual(gotTasks[0].text, taskPrivate.text)
         XCTAssertEqual(gotTasks[1].taskID!.uuidString, taskPublic.taskID!.uuidString)
         XCTAssertEqual(gotTasks[1].text, taskPublic.text)
-        
-        gotTasks = dataManager.getTasks(isGuest: true)
-        
-        XCTAssertEqual(gotTasks.count, 1)
-        XCTAssertEqual(gotTasks[0].taskID!.uuidString, taskPublic.taskID!.uuidString)
-        XCTAssertEqual(gotTasks[0].text, taskPublic.text)
     }
     
     func testEditTask() throws {
-        let dataManager = DataManager()
+        let taskManager = AbstractTaskManager()
 
         let taskOriginal = TaskListItem()
         taskOriginal.text = "task text #1"
@@ -89,18 +85,18 @@ class Task_TrackerDataManagerTests: XCTestCase {
         let taskEdited = TaskListItem()
         taskEdited.text = "Edited text here"
 
-        dataManager.createTask(taskItem: taskOriginal)
+        taskManager.createTask(taskItem: taskOriginal)
         
-        try dataManager.editTask(id: taskOriginal.taskID!.uuidString, taskItem: taskEdited)
+        try taskManager.editTask(id: taskOriginal.taskID!.uuidString, taskItem: taskEdited)
         
-        let gotTask = try dataManager.getTask(id: taskEdited.taskID!.uuidString)
+        let gotTask = try taskManager.getTask(id: taskEdited.taskID!.uuidString)
         
         XCTAssertEqual(gotTask.taskID!.uuidString, taskEdited.taskID!.uuidString)
         XCTAssertEqual(gotTask.text, taskEdited.text)
     }
     
     func testRemoveTask() throws {
-        let dataManager = DataManager()
+        let taskManager = AbstractTaskManager()
 
         let task1 = TaskListItem()
         task1.text = "task text #1"
@@ -108,12 +104,12 @@ class Task_TrackerDataManagerTests: XCTestCase {
         let task2 = TaskListItem()
         task2.text = "task text #2"
 
-        dataManager.createTask(taskItem: task1)
-        dataManager.createTask(taskItem: task2)
+        taskManager.createTask(taskItem: task1)
+        taskManager.createTask(taskItem: task2)
         
-        try dataManager.removeTask(id: task1.taskID!.uuidString)
+        try taskManager.removeTask(id: task1.taskID!.uuidString)
         
-        let remainingTasks = dataManager.getTasks(isGuest: false)
+        let remainingTasks = taskManager.getTasks()
         
         XCTAssertEqual(remainingTasks.count, 1)
         XCTAssertEqual(remainingTasks[0].taskID!.uuidString, task2.taskID!.uuidString)

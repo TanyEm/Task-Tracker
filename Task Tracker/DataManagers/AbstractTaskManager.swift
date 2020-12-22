@@ -12,7 +12,7 @@ enum DataError: Error {
 }
 
 protocol DataManager {
-    func setTask(taskItem: TaskListItem)
+    func createTask(taskItem: TaskListItem)
     func getTask(id: String) throws -> TaskListItem
     func editTask(id: String, taskItem: TaskListItem) throws
     func removeTask(id: String) throws
@@ -71,6 +71,11 @@ class AbstractTaskManager: DataManager {
     
     //MARK: Tasks management
     
+    func createTask(taskItem: TaskListItem) {
+        items.append(taskItem)
+        saveTasks()
+    }
+    
     func getTask(id: String) throws -> TaskListItem {
         for item in items {
             if item.taskID?.uuidString == id {
@@ -115,11 +120,6 @@ class AbstractTaskManager: DataManager {
         }
         
         items.remove(at: idxToRemove)
-        saveTasks()
-    }
-    
-    func setTask(taskItem: TaskListItem) {
-        items.append(taskItem)
         saveTasks()
     }
 

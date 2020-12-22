@@ -142,7 +142,7 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
         guard let data = dataManager else { return }
-        data.setTask(taskItem: item)
+        data.createTask(taskItem: item)
             
         navigationController?.popViewController(animated:true)
     }
