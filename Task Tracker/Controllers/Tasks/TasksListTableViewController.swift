@@ -13,17 +13,6 @@ class TasksListTableViewController: UITableViewController {
     
     var dataManager: DataManager?
     
-    init(dataManager: DataManager){
-        self.dataManager = dataManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-//        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,7 +35,8 @@ class TasksListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.rowHeight = UITableView.automaticDimension
         
-        itemsToShow = dataManager!.getTasks()
+        guard let data = dataManager else { return }
+        itemsToShow = data.getTasks()
         tableView.reloadData()
     }
         
@@ -96,7 +86,8 @@ class TasksListTableViewController: UITableViewController {
             let item = itemsToShow[indexPath.row]
             item.toggleChecked()
             do {
-                try dataManager!.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
+                guard let data = dataManager else { return }
+                try data.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
             } catch {
                 print("Unexpected error: \(error.localizedDescription).")
             }
@@ -112,7 +103,8 @@ class TasksListTableViewController: UITableViewController {
         let item = itemsToShow[indexPath.row]
         do {
             guard let itemID = item.taskID?.uuidString else {return}
-            try dataManager!.removeTask(id: itemID)
+            guard let data = dataManager else { return }
+            try data.removeTask(id: itemID)
         } catch {
             print("Unexpected error: \(error.localizedDescription).")
         }
@@ -125,27 +117,32 @@ class TasksListTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! TaskManagerTableViewController
+        guard let data = dataManager else { return }
+        
         if segue.identifier == "AddTask" {
-            let controller = segue.destination as! TaskManagerTableViewController
-//            controller.switchAccses = !guestAccess
-            controller.switchAccses = true
+            controller.switchAccses = data.isPrivateAccess()
             controller.delegate = self
-        } else if segue.identifier == "EditTask" {
-            let controller = segue.destination as! TaskManagerTableViewController
-            controller.delegate = self
+            return
+        }
+        
+        if segue.identifier == "EditTask" {
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                controller.switchAccses = true
+                controller.switchAccses = data.isPrivateAccess()
                 controller.taskToEdit = itemsToShow[indexPath.row]
             }
+            
+            controller.delegate = self
+            return
         }
     }
-    
 }
 
 extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
-        dataManager!.setTask(taskItem: item)
+        guard let data = dataManager else { return }
+        data.setTask(taskItem: item)
             
         navigationController?.popViewController(animated:true)
     }
@@ -153,7 +150,8 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem) {
         do {
             guard let itemID = item.taskID?.uuidString else {return}
-            try dataManager!.editTask(id: itemID, taskItem: item)
+            guard let data = dataManager else { return }
+            try data.editTask(id: itemID, taskItem: item)
         } catch {
             print("Unexpected error: \(error.localizedDescription).")
         }

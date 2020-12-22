@@ -14,7 +14,9 @@
 		7372AE2525869A1200EA71CC /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE2425869A1200EA71CC /* PincodeViewController.swift */; };
 		7372AE2A25869C9300EA71CC /* ButtonMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE2925869C9300EA71CC /* ButtonMover.swift */; };
 		7372AE352586E73C00EA71CC /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7372AE342586E73C00EA71CC /* Emitter.swift */; };
-		73837585259246E200CB4795 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73837584259246E200CB4795 /* Data.swift */; };
+		73837585259246E200CB4795 /* AbstractTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73837584259246E200CB4795 /* AbstractTaskManager.swift */; };
+		7383759125929CDA00CB4795 /* GuestTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7383759025929CDA00CB4795 /* GuestTaskManager.swift */; };
+		7383759625929CEB00CB4795 /* PrivateTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7383759525929CEB00CB4795 /* PrivateTaskManager.swift */; };
 		73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB3257E5FC900605A66 /* AppDelegate.swift */; };
 		73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */; };
 		73E7CABB257E5FC900605A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CAB9257E5FC900605A66 /* Main.storyboard */; };
@@ -34,7 +36,7 @@
 		73E7CB13257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */; };
 		73E7CB20257FD95600605A66 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB1F257FD95600605A66 /* TaskListModel.swift */; };
 		73E7CB28257FF4D900605A66 /* TaskManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */; };
-		73E7CB3C2581231900605A66 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB3B2581231900605A66 /* DataManager.swift */; };
+		73E7CB3C2581231900605A66 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E7CB3B2581231900605A66 /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,9 @@
 		7372AE2425869A1200EA71CC /* PincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeViewController.swift; sourceTree = "<group>"; };
 		7372AE2925869C9300EA71CC /* ButtonMover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMover.swift; sourceTree = "<group>"; };
 		7372AE342586E73C00EA71CC /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
-		73837584259246E200CB4795 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		73837584259246E200CB4795 /* AbstractTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractTaskManager.swift; sourceTree = "<group>"; };
+		7383759025929CDA00CB4795 /* GuestTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestTaskManager.swift; sourceTree = "<group>"; };
+		7383759525929CEB00CB4795 /* PrivateTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateTaskManager.swift; sourceTree = "<group>"; };
 		73E7CAB0257E5FC900605A66 /* Task Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E7CAB3257E5FC900605A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E7CAB5257E5FC900605A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +92,7 @@
 		73E7CB0A257E9A0600605A66 /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
 		73E7CB1F257FD95600605A66 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
 		73E7CB27257FF4D900605A66 /* TaskManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTableViewController.swift; sourceTree = "<group>"; };
-		73E7CB3B2581231900605A66 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		73E7CB3B2581231900605A66 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				73E7CB1F257FD95600605A66 /* TaskListModel.swift */,
+				73E7CB3B2581231900605A66 /* ChecklistItem.swift */,
 				7372AE342586E73C00EA71CC /* Emitter.swift */,
 			);
 			path = Models;
@@ -172,8 +177,6 @@
 		732CC8472582AAE5001764FB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				73E7CB3B2581231900605A66 /* DataManager.swift */,
-				73837584259246E200CB4795 /* Data.swift */,
 				732CC864258426A6001764FB /* GesturesHendler.swift */,
 				7372AE142585415D00EA71CC /* AlertMessage.swift */,
 				7372AE2925869C9300EA71CC /* ButtonMover.swift */,
@@ -187,6 +190,16 @@
 				7372AE2425869A1200EA71CC /* PincodeViewController.swift */,
 			);
 			path = Pincode;
+			sourceTree = "<group>";
+		};
+		73CBFDD025929E0900CCA795 /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				7383759025929CDA00CB4795 /* GuestTaskManager.swift */,
+				7383759525929CEB00CB4795 /* PrivateTaskManager.swift */,
+				73837584259246E200CB4795 /* AbstractTaskManager.swift */,
+			);
+			path = DataManagers;
 			sourceTree = "<group>";
 		};
 		73E7CAA7257E5FC900605A66 = {
@@ -219,6 +232,7 @@
 				732CC8422582AA0C001764FB /* Controllers */,
 				732CC8462582AAC4001764FB /* Models */,
 				732CC8472582AAE5001764FB /* Services */,
+				73CBFDD025929E0900CCA795 /* DataManagers */,
 				73E7CAC4257E5FCA00605A66 /* Info.plist */,
 			);
 			path = "Task Tracker";
@@ -420,14 +434,16 @@
 				733D40B025817F5000BC8FF3 /* WelcomeViewController.swift in Sources */,
 				73E7CB20257FD95600605A66 /* TaskListModel.swift in Sources */,
 				73E7CAB4257E5FC900605A66 /* AppDelegate.swift in Sources */,
+				7383759125929CDA00CB4795 /* GuestTaskManager.swift in Sources */,
 				7372AE2525869A1200EA71CC /* PincodeViewController.swift in Sources */,
 				73E7CAB6257E5FC900605A66 /* SceneDelegate.swift in Sources */,
 				73E7CAF0257E855300605A66 /* TasksListTableViewController.swift in Sources */,
-				73837585259246E200CB4795 /* Data.swift in Sources */,
+				73837585259246E200CB4795 /* AbstractTaskManager.swift in Sources */,
 				7372AE152585415D00EA71CC /* AlertMessage.swift in Sources */,
 				732CC865258426A6001764FB /* GesturesHendler.swift in Sources */,
 				7372AE2A25869C9300EA71CC /* ButtonMover.swift in Sources */,
-				73E7CB3C2581231900605A66 /* DataManager.swift in Sources */,
+				7383759625929CEB00CB4795 /* PrivateTaskManager.swift in Sources */,
+				73E7CB3C2581231900605A66 /* ChecklistItem.swift in Sources */,
 				7372AE352586E73C00EA71CC /* Emitter.swift in Sources */,
 				732CC83D2582A13D001764FB /* SettingsViewController.swift in Sources */,
 			);

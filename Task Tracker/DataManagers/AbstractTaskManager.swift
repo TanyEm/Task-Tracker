@@ -7,15 +7,20 @@
 
 import Foundation
 
+enum DataError: Error {
+    case taskNotFound(id: String)
+}
+
 protocol DataManager {
     func setTask(taskItem: TaskListItem)
     func getTask(id: String) throws -> TaskListItem
     func editTask(id: String, taskItem: TaskListItem) throws
     func removeTask(id: String) throws
     func getTasks() -> [TaskListItem]
+    func isPrivateAccess() -> Bool
 }
 
-class PrivateTaskManager: DataManager {
+class AbstractTaskManager: DataManager {
     
     var items = [TaskListItem]()
     
@@ -25,10 +30,46 @@ class PrivateTaskManager: DataManager {
         print("Data file path is \(dataFilePath())")
     }
     
-    func setTask(taskItem: TaskListItem) {
-        items.append(taskItem)
-        saveTasks()
+    //MARK: Data management
+    
+    private func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("TaskListItem.plist")
     }
+    
+    private func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    private func loadChecklistItems() {
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                items = try decoder.decode([TaskListItem].self,from: data)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func saveTasks() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(items)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    //MARK: Access management
+    
+    func isPrivateAccess() -> Bool {
+        fatalError("Method must be implemented")
+    }
+    
+    //MARK: Tasks management
     
     func getTask(id: String) throws -> TaskListItem {
         for item in items {
@@ -37,6 +78,10 @@ class PrivateTaskManager: DataManager {
             }
         }
         throw DataError.taskNotFound(id: id)
+    }
+    
+    func getTasks() -> [TaskListItem] {
+        return items
     }
     
     func editTask(id: String, taskItem: TaskListItem) throws {
@@ -73,45 +118,9 @@ class PrivateTaskManager: DataManager {
         saveTasks()
     }
     
-    func getTasks() -> [TaskListItem] {
-        return items
+    func setTask(taskItem: TaskListItem) {
+        items.append(taskItem)
+        saveTasks()
     }
-    
-    private func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    private func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("TaskListItem.plist")
-    }
-    
-    private func saveTasks() {
-        let encoder = PropertyListEncoder()
-        do {
-            let data = try encoder.encode(items)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    private func loadChecklistItems() {
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                items = try decoder.decode([TaskListItem].self,from: data)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
 
-class GuestTaskManager: PrivateTaskManager {
-    
-    override func getTasks() -> [TaskListItem] {
-        return items.filter({!$0.isPrivate})
-    }
 }
