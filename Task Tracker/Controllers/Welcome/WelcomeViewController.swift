@@ -83,17 +83,18 @@ class WelcomeViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tab = segue.destination as? UITabBarController else { return }
+        guard let nav = tab.viewControllers?[0] as? UINavigationController else { return }
+        guard let controller = nav.viewControllers.first as? TasksListTableViewController else { return }
+        
         if segue.identifier == "GuestAccess" {
-            let tab = segue.destination as? UITabBarController
-            let nav = tab!.viewControllers?[0] as? UINavigationController
-            let controller = nav!.viewControllers.first as? TasksListTableViewController
-                controller!.guestAccess = true
-        } else if segue.identifier == "OwnerAccess"{
-            if let tab = segue.destination as? UITabBarController,
-                let nav = tab.viewControllers?[0] as? UINavigationController,
-                let controller = nav.viewControllers.first as? TasksListTableViewController {
-                controller.guestAccess = false
-            }
+            controller.dataManager = GuestTaskManager()
+            return
+        }
+        
+        if segue.identifier == "OwnerAccess"{
+            controller.dataManager = PrivateTaskManager()
+            return
         }
     }
 }

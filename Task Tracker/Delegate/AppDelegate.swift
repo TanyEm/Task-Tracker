@@ -11,10 +11,18 @@ import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         registerForPushNotifications()
+        
+//        let dataManager = DataManager()
+//        if let rootViewController = window?.rootViewController as? TasksListTableViewController {
+//            rootViewController.dataManager = dataManager
+//        }
+        
 
         return true
     }

@@ -10,8 +10,19 @@ import UIKit
 class TasksListTableViewController: UITableViewController {
     
     var itemsToShow = [TaskListItem]()
-    var storage = DataManager()
-    var guestAccess = false
+    
+    var dataManager: DataManager?
+    
+    init(dataManager: DataManager){
+        self.dataManager = dataManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+//        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +41,12 @@ class TasksListTableViewController: UITableViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-                
-        print("guest access", guestAccess)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.rowHeight = UITableView.automaticDimension
-        itemsToShow = storage.getTasks(isGuest: guestAccess)
+        
+        itemsToShow = dataManager!.getTasks()
         tableView.reloadData()
     }
         
@@ -86,7 +96,7 @@ class TasksListTableViewController: UITableViewController {
             let item = itemsToShow[indexPath.row]
             item.toggleChecked()
             do {
-                try storage.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
+                try dataManager!.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
             } catch {
                 print("Unexpected error: \(error.localizedDescription).")
             }
@@ -102,7 +112,7 @@ class TasksListTableViewController: UITableViewController {
         let item = itemsToShow[indexPath.row]
         do {
             guard let itemID = item.taskID?.uuidString else {return}
-            try storage.removeTask(id: itemID)
+            try dataManager!.removeTask(id: itemID)
         } catch {
             print("Unexpected error: \(error.localizedDescription).")
         }
@@ -117,13 +127,14 @@ class TasksListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddTask" {
             let controller = segue.destination as! TaskManagerTableViewController
-            controller.switchAccses = !guestAccess
+//            controller.switchAccses = !guestAccess
+            controller.switchAccses = true
             controller.delegate = self
         } else if segue.identifier == "EditTask" {
             let controller = segue.destination as! TaskManagerTableViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                controller.switchAccses = !guestAccess
+                controller.switchAccses = true
                 controller.taskToEdit = itemsToShow[indexPath.row]
             }
         }
@@ -134,7 +145,7 @@ class TasksListTableViewController: UITableViewController {
 extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
-        storage.createTask(taskItem: item)
+        dataManager!.setTask(taskItem: item)
             
         navigationController?.popViewController(animated:true)
     }
@@ -142,7 +153,7 @@ extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem) {
         do {
             guard let itemID = item.taskID?.uuidString else {return}
-            try storage.editTask(id: itemID, taskItem: item)
+            try dataManager!.editTask(id: itemID, taskItem: item)
         } catch {
             print("Unexpected error: \(error.localizedDescription).")
         }

@@ -1,29 +1,23 @@
 //
-//  TaskStorageManager.swift
+//  Data.swift
 //  Task Tracker
 //
-//  Created by Tatiana Podlesnykh on 9.12.2020.
+//  Created by Tatiana Podlesnykh on 22.12.2020.
 //
 
 import Foundation
 
-enum DataError: Error {
-    case taskNotFound(id: String)
+protocol DataManager {
+    func setTask(taskItem: TaskListItem)
+    func getTask(id: String) throws -> TaskListItem
+    func editTask(id: String, taskItem: TaskListItem) throws
+    func removeTask(id: String) throws
+    func getTasks() -> [TaskListItem]
 }
 
-class ChecklistItem {
-    var text = ""
-    var checked = false
+class PrivateTaskManager: DataManager {
     
-    func toggleChecked() {
-      checked = !checked
-    }
-}
-
-
-class DataManager1 {
-    
-    private var items = [TaskListItem]()
+    var items = [TaskListItem]()
     
     init() {
         loadChecklistItems()
@@ -31,16 +25,9 @@ class DataManager1 {
         print("Data file path is \(dataFilePath())")
     }
     
-    func createTask(taskItem: TaskListItem) {
+    func setTask(taskItem: TaskListItem) {
         items.append(taskItem)
         saveTasks()
-    }
-    
-    func getTasks(isGuest: Bool) -> [TaskListItem] {
-        if isGuest {
-            return items.filter({!$0.isPrivate})
-        }
-        return items
     }
     
     func getTask(id: String) throws -> TaskListItem {
@@ -49,10 +36,8 @@ class DataManager1 {
                 return item
             }
         }
-        
         throw DataError.taskNotFound(id: id)
     }
-
     
     func editTask(id: String, taskItem: TaskListItem) throws {
         var idxToChange = -1
@@ -88,6 +73,10 @@ class DataManager1 {
         saveTasks()
     }
     
+    func getTasks() -> [TaskListItem] {
+        return items
+    }
+    
     private func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
@@ -117,5 +106,12 @@ class DataManager1 {
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+class GuestTaskManager: PrivateTaskManager {
+    
+    override func getTasks() -> [TaskListItem] {
+        return items.filter({!$0.isPrivate})
     }
 }

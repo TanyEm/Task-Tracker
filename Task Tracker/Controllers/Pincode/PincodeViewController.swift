@@ -134,5 +134,17 @@ extension PincodeViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tab = segue.destination as? UITabBarController else { return }
+        guard let nav = tab.viewControllers?[0] as? UINavigationController else { return }
+        guard let controller = nav.viewControllers.first as? TasksListTableViewController else { return }
+        
+        if segue.identifier == "PincodeConfirmed" {
+            controller.dataManager = PrivateTaskManager()
+            return
+        }
+    }
+
 
 }
