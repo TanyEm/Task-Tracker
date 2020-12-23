@@ -86,8 +86,7 @@ class TasksListTableViewController: UITableViewController {
             let item = itemsToShow[indexPath.row]
             item.toggleChecked()
             do {
-                guard let data = dataManager else { return }
-                try data.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
+                try dataManager?.editTask(id: (item.taskID?.uuidString)!, taskItem: item)
             } catch {
                 print("Unexpected error: \(error.localizedDescription).")
             }
@@ -103,8 +102,7 @@ class TasksListTableViewController: UITableViewController {
         let item = itemsToShow[indexPath.row]
         do {
             guard let itemID = item.taskID?.uuidString else {return}
-            guard let data = dataManager else { return }
-            try data.removeTask(id: itemID)
+            try dataManager?.removeTask(id: itemID)
         } catch {
             print("Unexpected error: \(error.localizedDescription).")
         }
@@ -118,18 +116,16 @@ class TasksListTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! TaskManagerTableViewController
-        guard let data = dataManager else { return }
+        controller.dataManager = self.dataManager
         
         if segue.identifier == "AddTask" {
-            controller.switchAccses = data.isPrivateAccess()
             controller.delegate = self
             return
         }
         
         if segue.identifier == "EditTask" {
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                controller.switchAccses = data.isPrivateAccess()
-                controller.taskToEdit = itemsToShow[indexPath.row]
+                controller.taskID = itemsToShow[indexPath.row].taskID
             }
             
             controller.delegate = self
@@ -140,22 +136,7 @@ class TasksListTableViewController: UITableViewController {
 
 extension TasksListTableViewController: TaskManagerViewControllerDelegate {
     
-    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem) {
-        guard let data = dataManager else { return }
-        data.createTask(taskItem: item)
-            
-        navigationController?.popViewController(animated:true)
-    }
-    
-    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem) {
-        do {
-            guard let itemID = item.taskID?.uuidString else {return}
-            guard let data = dataManager else { return }
-            try data.editTask(id: itemID, taskItem: item)
-        } catch {
-            print("Unexpected error: \(error.localizedDescription).")
-        }
-        
+    func taskManagerViewController(_ controller: TaskManagerTableViewController) {
         navigationController?.popViewController(animated:true)
     }
     

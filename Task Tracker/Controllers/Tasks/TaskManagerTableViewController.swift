@@ -10,8 +10,7 @@ import UserNotifications
 
 protocol TaskManagerViewControllerDelegate: class {
     // Should saves new task or updates data of task
-    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishAdding item: TaskListItem)
-    func taskManagerViewController(_ controller: TaskManagerTableViewController, didFinishEditing item: TaskListItem)
+    func taskManagerViewController(_ controller: TaskManagerTableViewController)
 }
 
 class TaskManagerTableViewController: UITableViewController {
@@ -24,8 +23,9 @@ class TaskManagerTableViewController: UITableViewController {
     
     weak var delegate: TaskManagerViewControllerDelegate?
     
-    var taskToEdit: TaskListItem?
-    var switchAccses = true
+    var dataManager: DataManager?
+    var taskID: UUID?
+    
     var shouldRemind = false
     var dueDate = Date()
     let picker = UIDatePicker()
@@ -37,7 +37,8 @@ class TaskManagerTableViewController: UITableViewController {
         textView.delegate = self
 
         // When a guest comes a switcher must be forbidden
-        if !switchAccses {
+        guard let isPrivate = dataManager?.isPrivateAccess() else { return }
+        if !isPrivate {
             privacySwitch.isEnabled = false
             privacySwitch.isOn = false
         }
@@ -46,16 +47,20 @@ class TaskManagerTableViewController: UITableViewController {
             shouldRemindSwitch.isOn = false
         }
         
+        guard let id = taskID else { return }
         
-        if let task = taskToEdit {
+        do {
+            guard let task = try dataManager?.getTask(id: id.uuidString) else { return }
             title = "Edit your task 😉"
             textView.text = task.text
             doneBarButton.isEnabled = true
             privacySwitch.isOn = task.isPrivate
             shouldRemindSwitch.isOn = task.shouldRemind
             dueDateField.text = dateFormatter(strDate: task.dueDate)
+        } catch {
+            print("Unexpected error: \(error.localizedDescription).")
         }
-        
+                
         let titleFont = [NSAttributedString.Key.font:
                             UIFont(name: "SF Compact Rounded Semibold",
                                    size: 20) ??
@@ -79,14 +84,8 @@ class TaskManagerTableViewController: UITableViewController {
     @IBAction func done() {
         
         // Send task new or edited data thru delegate
-        if let task = taskToEdit {
-            task.text = textView.text!
-            task.isPrivate = privacySwitch.isOn
-            task.shouldRemind = shouldRemindSwitch.isOn
-            task.dueDate = dueDate
-            task.scheduleNotification()
-            delegate?.taskManagerViewController(self, didFinishEditing: task)
-        } else {
+        
+        guard let id = taskID else {
             let task = TaskListItem()
             task.text = textView.text!
             task.checked = false
@@ -94,8 +93,35 @@ class TaskManagerTableViewController: UITableViewController {
             task.shouldRemind = shouldRemindSwitch.isOn
             task.dueDate = dueDate
             task.scheduleNotification()
-            delegate?.taskManagerViewController(self, didFinishAdding: task)
+            
+            dataManager?.createTask(taskItem: task)
+            
+            delegate?.taskManagerViewController(self)
+            return
         }
+        
+        do {
+            guard let task = try dataManager?.getTask(id: id.uuidString) else { return }
+            task.text = textView.text!
+            task.isPrivate = privacySwitch.isOn
+            task.shouldRemind = shouldRemindSwitch.isOn
+            task.dueDate = dueDate
+            task.scheduleNotification()
+            
+            do {
+                try dataManager?.editTask(id: id.uuidString, taskItem: task)
+            } catch {
+                print("Unexpected error: \(error.localizedDescription).")
+            }
+            
+            delegate?.taskManagerViewController(self)
+            return
+        } catch {
+            print("Unexpected error: \(error.localizedDescription).")
+        }
+        
+        
+
     }
     
     @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
